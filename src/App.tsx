@@ -809,7 +809,7 @@ export default function App() {
         </div>
 
         {/* ── Team section ───────────────────────────────────── */}
-        <div className="max-w-2xl mx-auto px-6 pb-10">
+        <div className="max-w-4xl mx-auto px-6 pb-10">
           <div className="border-t border-gray-100 pt-10 text-center">
             <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-2">Mūsu komanda</p>
             <p className="text-sm text-gray-400 mb-7 max-w-md mx-auto leading-relaxed">
@@ -829,34 +829,31 @@ export default function App() {
                 </div>
               ))}
 
-              {/* AI Agents card */}
-              <div className="bg-gray-900 rounded-xl p-5 flex flex-col text-left relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 rounded-full -translate-y-8 translate-x-8 pointer-events-none" />
-                <div className="w-10 h-10 rounded-xl bg-blue-600/20 flex items-center justify-center mb-3 flex-shrink-0">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-blue-400"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M12 8v4"/><path d="M6.3 9.3A7 7 0 1 0 17.7 9.3"/><circle cx="12" cy="16" r="1"/></svg>
+              {/* AI card */}
+              <div className="bg-blue-50 border border-blue-100 rounded-xl p-5 flex flex-col text-left relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-28 h-28 bg-blue-100 rounded-full -translate-y-8 translate-x-8 pointer-events-none" />
+                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center mb-3 flex-shrink-0">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-blue-600">
+                    <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96-.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.44-4.16Z"/>
+                    <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96-.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.44-4.16Z"/>
+                  </svg>
                 </div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-400 mb-1">Jaunums</p>
-                <p className="text-sm font-extrabold text-white leading-tight mb-2">AI Aģenti jūsu biznesā</p>
-                <p className="text-[11px] text-gray-400 mb-4 leading-relaxed">Tas nav zinātniskā fantastika — mēs to būvējam jau šodien.</p>
-                <ul className="space-y-2 mb-5 flex-1">
+                <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-500 mb-1">Jaunums</p>
+                <p className="text-sm font-extrabold text-gray-900 leading-tight mb-2">Mākslīgā Intelekta pielietojums biznesā</p>
+                <p className="text-[11px] text-gray-500 mb-4 leading-relaxed">Tas nav zinātniskā fantastika — mēs to būvējam jau šodien.</p>
+                <ul className="space-y-2 flex-1">
                   {[
                     "Atbild klientiem 24/7 bez operatora",
                     "Apstrādā pasūtījumus un piedāvājumus",
                     "Atjaunina CRM automātiski",
                     "Seko konkurentu cenām reāllaikā",
                   ].map((uc) => (
-                    <li key={uc} className="flex items-start gap-2 text-[11px] text-gray-300">
-                      <span className="text-blue-400 mt-0.5 flex-shrink-0">▸</span>
+                    <li key={uc} className="flex items-start gap-2 text-[11px] text-gray-600">
+                      <span className="text-blue-500 mt-0.5 flex-shrink-0">▸</span>
                       {uc}
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={() => scrollTo("cta")}
-                  className="w-full text-center text-xs font-bold text-blue-400 hover:text-white border border-blue-800 hover:border-blue-400 hover:bg-blue-600/20 py-2 rounded-lg transition-all duration-200 cursor-pointer"
-                >
-                  Ko Tu gribi automatizēt? →
-                </button>
               </div>
             </div>
             <div className="flex flex-wrap justify-center gap-2">
