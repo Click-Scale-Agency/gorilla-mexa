@@ -668,6 +668,9 @@ export default function App() {
         </div>
       </div>
 
+      {/* Gradient bleed — dark footer → white */}
+      <div className="h-16 bg-gradient-to-b from-[#3a3a3a] to-white" />
+
       {/* ── Ghostly audit teaser — first thing after MEXA footer ── */}
       <div className="bg-white py-16 px-6">
         <div className="max-w-2xl mx-auto">
@@ -758,7 +761,7 @@ export default function App() {
       {/* ══════════════════════════════════════════════════════
           SECTION 3 — CLICKSSCALE CTA
       ══════════════════════════════════════════════════════ */}
-      <section className="bg-white border-t-4 border-blue-600">
+      <section className="bg-white">
         <div className="max-w-3xl mx-auto px-6 pt-24 pb-14 text-center">
           <div className="flex items-center justify-center mb-8">
             <img src={CS_LOGO} alt="ClicksScale" className="h-10 object-contain" />
