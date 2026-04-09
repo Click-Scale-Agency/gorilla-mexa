@@ -292,7 +292,7 @@ export default function App() {
           {/* Logo + Status pill row */}
           <div className="flex flex-row items-center justify-center gap-8 mb-8">
             <img src={MEXA.logo} alt="MEXA" className="object-contain brightness-0 invert" style={{ width: '100px', height: '100px' }} />
-            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full">
+            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-sm font-medium px-4 py-2 rounded-full text-highlight">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-highlight" />
