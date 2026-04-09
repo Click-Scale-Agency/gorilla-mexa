@@ -142,13 +142,13 @@ export default function App() {
               <img src={CS_LOGO} alt="ClicksScale" className="h-9 w-9 rounded-full object-contain shadow-sm" />
               <div>
                 <p className="text-sm font-bold text-gray-900 leading-tight">ClicksScale</p>
-                <p className="text-[11px] text-gray-400">Web Development Agency</p>
+                <p className="text-[11px] text-gray-400">Web Development & Digital Marketing Agency</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <a href="https://clickscale.agency/case-studies" target="_blank" rel="noopener noreferrer"
                 className="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors hidden sm:block">
-                Case Studies
+                Mūsu Projekti
               </a>
               <span className="bg-blue-50 border border-blue-100 text-blue-700 text-[11px] font-semibold px-3 py-1 rounded-full">
                 Demo lapa
