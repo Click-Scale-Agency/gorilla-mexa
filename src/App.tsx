@@ -280,9 +280,6 @@ export default function App() {
                   className="text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-4 py-1.5 rounded-full transition-all duration-200 hidden sm:block whitespace-nowrap">
                   Apskati mūsu citus klientus
                 </a>
-                <span className="bg-highlight text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full">
-                  Demo lapa
-                </span>
               </div>
             </div>
           </div>
