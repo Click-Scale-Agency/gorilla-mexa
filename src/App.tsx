@@ -290,11 +290,13 @@ export default function App() {
 
         <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
           {/* Client logo */}
-          <img src={MEXA.logo} alt="MEXA" className="h-16 object-contain mb-6 opacity-80" />
+          {/* Client logo moved into pill below */}
 
           {/* Intro */}
           <div className="max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full mb-8">
+              <img src={MEXA.logo} alt="MEXA" className="h-5 object-contain brightness-0 invert" />
+              <span className="w-px h-4 bg-white/30" />
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
