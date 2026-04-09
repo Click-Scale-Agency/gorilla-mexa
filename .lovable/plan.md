@@ -1,29 +1,42 @@
 
 
-## Plan: Apply ClickScale Hero Gradient Background
+## Plan: Apply ClickScale Hero Formatting
 
 ### What changes
-Apply the same gradient background from the [Click Scale Agency](/projects/20ab001c-da0b-40ed-8c90-ed2dc2dc3b7e) hero section to Section 1 (the ClicksScale Demo Frame) in this project.
+Match the ClickScale Agency hero section's polished formatting: floating pill navigation bar, Inter font, highlight-colored CTA button (#C8FF24 yellow-green), refined typography, and glassmorphism styling.
 
 ### Changes
 
-**File: `src/App.tsx`**
+**1. `src/index.css` — Add Inter font import and CSS variables**
+- Add `@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');`
+- Add `--font-heading: 'Inter'` and `--font-body: 'Inter'` CSS variables
+- Add `--highlight: 76 100% 57%` and `--highlight-foreground: 220 29% 6%` color variables
+- Add font-family rules for headings and body
 
-1. Change the Section 1 `<section>` background from `bg-white` to the ClickScale gradient:
-   `linear-gradient(135deg, #0238F4 0%, #7A1DF2 45%, #00D6C9 100%)`
+**2. `tailwind.config.ts` — Add highlight color and glow shadows**
+- Add `highlight` color tokens (`DEFAULT`, `foreground`, `hover`)
+- Add `fontFamily` with `heading` and `body` using the CSS variables
+- Add `boxShadow` entries: `glow-yellow`, `glow-yellow-lg` for the CTA glow effect
 
-2. Update text colors in the hero area to work on a dark gradient background:
-   - Header: switch to transparent/blur dark style with white text
-   - Heading text: white instead of gray-900, accent stays bright
-   - Subtext: light gray/white tones
-   - Badge pill: adjust to match the ClickScale style (highlight on dark)
-   - Audit cards: keep their current styling (they have their own backgrounds)
+**3. `src/App.tsx` — Restyle the header and CTA button**
 
-3. Update the "Demo lapa" badge and header links to use light-on-dark color scheme
+**Header (lines 268-287):**
+- Replace the flat transparent header with a floating pill/island nav bar (rounded-full, centered, with backdrop-blur and subtle border) matching the ClickScale `Header.tsx` pattern
+- White background with blur on scroll, clean rounded-full shape
+- Logo + nav links + "Demo lapa" badge + "Apskati mūsu citus klientus" button all inside the pill
+
+**CTA Button (lines 354-359):**
+- Change from `bg-blue-600` to the ClickScale highlight yellow-green: `bg-[#C8FF24] text-gray-900` with `shadow-glow-yellow` and `hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105`
+- Add `rounded-lg font-semibold` matching ClickScale button styling
+- Keep the existing bounce and pulse animations
+
+**Typography:**
+- Apply `font-['Inter']` to the hero section
+- Heading: keep `font-extrabold` but ensure Inter renders
+- Subtext: keep current sizing
 
 ### Technical details
-- The gradient is: `style={{ background: 'linear-gradient(135deg, #0238F4 0%, #7A1DF2 45%, #00D6C9 100%)' }}`
-- Only Section 1 (lines ~267-360) needs color adjustments
-- The header, hero text block, and badge need white/light text treatments
-- Audit cards already have opaque backgrounds so they remain readable
+- Files modified: `src/index.css`, `tailwind.config.ts`, `src/App.tsx`
+- The floating nav pill is CSS-only (no framer-motion needed) — uses `rounded-full bg-white/90 backdrop-blur-xl shadow-xl border`
+- The CTA highlight color `#C8FF24` maps to `hsl(76 100% 57%)`
 
