@@ -290,7 +290,7 @@ export default function App() {
 
         <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
           {/* Client logo */}
-          <img src={MEXA.logo} alt="MEXA" className="h-16 object-contain mb-6 opacity-80" />
+          {/* Client logo moved into pill below */}
 
           {/* Intro */}
           <div className="max-w-2xl mx-auto">
