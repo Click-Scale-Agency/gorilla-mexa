@@ -342,8 +342,8 @@ export default function App() {
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-highlight mb-0.5">Ko mēs izveidojām</p>
                   <p className="text-sm font-semibold text-white">Jaunā versija priekš jums</p>
                 </div>
-                <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-highlight text-[11px] font-semibold px-2.5 py-1 rounded-lg">
-                  {AUDIT.timeTag}
+                <span className="bg-highlight text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full">
+                  Demo lapa
                 </span>
               </div>
               <div className="px-6 py-5 space-y-3">
