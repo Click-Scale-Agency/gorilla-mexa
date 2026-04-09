@@ -313,42 +313,42 @@ export default function App() {
           {/* Audit cards */}
           <div className="max-w-4xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-10">
             {/* Before */}
-            <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white">
-              <div className="bg-red-50 px-6 py-4 flex items-center justify-between">
+            <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl">
+              <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-red-400 mb-0.5">Ko mēs pamanījām</p>
-                  <p className="text-sm font-semibold text-gray-700">Vecā mājaslapa</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-red-300 mb-0.5">Ko mēs pamanījām</p>
+                  <p className="text-sm font-semibold text-white/90">Vecā mājaslapa</p>
                 </div>
-                <span className="bg-white border border-red-100 text-red-500 text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg">
+                <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-red-300 text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg">
                   {AUDIT.domain}
                 </span>
               </div>
               <div className="px-6 py-5 space-y-3">
                 {AUDIT.problems.map((p) => (
                   <div key={p} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-red-50 flex items-center justify-center text-red-500 text-xs font-bold">✕</span>
-                    <span className="text-sm text-gray-600">{p}</span>
+                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center text-red-300 text-xs font-bold">✕</span>
+                    <span className="text-sm text-white/70">{p}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* After */}
-            <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white">
-              <div className="bg-blue-50 px-6 py-4 flex items-center justify-between">
+            <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl">
+              <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue-400 mb-0.5">Ko mēs izveidojām</p>
-                  <p className="text-sm font-semibold text-gray-700">Jaunā versija priekš jums</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue-300 mb-0.5">Ko mēs izveidojām</p>
+                  <p className="text-sm font-semibold text-white/90">Jaunā versija priekš jums</p>
                 </div>
-                <span className="bg-white border border-blue-100 text-blue-500 text-[11px] font-semibold px-2.5 py-1 rounded-lg">
+                <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-blue-300 text-[11px] font-semibold px-2.5 py-1 rounded-lg">
                   {AUDIT.timeTag}
                 </span>
               </div>
               <div className="px-6 py-5 space-y-3">
                 {AUDIT.gains.map((g) => (
                   <div key={g} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 text-xs font-bold">✓</span>
-                    <span className="text-sm text-gray-600">{g}</span>
+                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 text-xs font-bold">✓</span>
+                    <span className="text-sm text-white/70">{g}</span>
                   </div>
                 ))}
               </div>
