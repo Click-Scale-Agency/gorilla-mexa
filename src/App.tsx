@@ -264,22 +264,22 @@ export default function App() {
       {/* ══════════════════════════════════════════════════════
           SECTION 1 — CLICKSSCALE DEMO FRAME
       ══════════════════════════════════════════════════════ */}
-      <section className="bg-white min-h-screen flex flex-col">
-        <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <section className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(135deg, #0238F4 0%, #7A1DF2 45%, #00D6C9 100%)' }}>
+        <header className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10">
           <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <img src={CS_LOGO} alt="ClicksScale" className="h-10 object-contain" />
+              <img src={CS_LOGO} alt="ClicksScale" className="h-10 object-contain brightness-0 invert" />
               <div className="hidden sm:flex flex-col justify-center leading-tight">
-                <p className="text-[13px] font-semibold text-gray-800">Tīmekļa izstrādes &amp;</p>
-                <p className="text-[13px] font-semibold text-gray-800">digitālā mārketinga aģentūra</p>
+                <p className="text-[13px] font-semibold text-white/90">Tīmekļa izstrādes &amp;</p>
+                <p className="text-[13px] font-semibold text-white/90">digitālā mārketinga aģentūra</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <a href="https://clickscale.agency/lv/veiksmes-stasti" target="_blank" rel="noopener noreferrer"
-                className="text-sm font-semibold text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-200 hover:border-blue-600 px-4 py-1.5 rounded-lg transition-all duration-200 hidden sm:block whitespace-nowrap">
+                className="text-sm font-semibold text-white hover:bg-white/20 border border-white/30 hover:border-white/50 px-4 py-1.5 rounded-lg transition-all duration-200 hidden sm:block whitespace-nowrap">
                 Apskati mūsu citus klientus
               </a>
-              <span className="bg-blue-50 border border-blue-100 text-blue-700 text-[11px] font-semibold px-3 py-1 rounded-full">
+              <span className="bg-white/15 border border-white/20 text-white text-[11px] font-semibold px-3 py-1 rounded-full">
                 Demo lapa
               </span>
             </div>
@@ -289,18 +289,18 @@ export default function App() {
         <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
           {/* Intro */}
           <div className="max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-8">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
               </span>
               Personalizēta demonstrācija — MEXA
             </div>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-4">
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">
               Mēs izveidojām šo lapu<br />
-              <span className="text-blue-600">speciāli priekš jums</span>
+              <span className="text-cyan-300">speciāli priekš jums</span>
             </h1>
-            <p className="text-lg text-gray-400 mb-10">
+            <p className="text-lg text-white/70 mb-10">
               Zemāk redzat, ko mēs pamanījām jūsu mājaslapā — un ko mēs izveidojām.
             </p>
           </div>
