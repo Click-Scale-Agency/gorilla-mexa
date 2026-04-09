@@ -94,10 +94,13 @@ export default {
         },
         "bounce-gentle": {
           "0%, 100%": { transform: "translateY(0)" },
-          "15%": { transform: "translateY(-8px)" },
-          "30%": { transform: "translateY(0)" },
-          "45%": { transform: "translateY(-4px)" },
-          "60%": { transform: "translateY(0)" },
+          "25%": { transform: "translateY(-6px)" },
+          "50%": { transform: "translateY(0)" },
+          "75%": { transform: "translateY(-3px)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
         },
         "chevron-bounce": {
           "0%, 100%": { transform: "translateY(0)", opacity: "1" },
