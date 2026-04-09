@@ -316,10 +316,10 @@ export default function App() {
             <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl">
               <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-red-300 mb-0.5">Ko mēs pamanījām</p>
-                  <p className="text-sm font-semibold text-white/90">Vecā mājaslapa</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-red-400 mb-0.5">Ko mēs pamanījām</p>
+                  <p className="text-sm font-semibold text-white">Vecā mājaslapa</p>
                 </div>
-                <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-red-300 text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg">
+                <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-red-400 text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg">
                   {AUDIT.domain}
                 </span>
               </div>
@@ -327,7 +327,7 @@ export default function App() {
                 {AUDIT.problems.map((p) => (
                   <div key={p} className="flex items-start gap-3">
                     <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center text-red-300 text-xs font-bold">✕</span>
-                    <span className="text-sm text-white/70">{p}</span>
+                    <span className="text-sm text-white">{p}</span>
                   </div>
                 ))}
               </div>
@@ -337,10 +337,10 @@ export default function App() {
             <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl">
               <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue-300 mb-0.5">Ko mēs izveidojām</p>
-                  <p className="text-sm font-semibold text-white/90">Jaunā versija priekš jums</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-highlight mb-0.5">Ko mēs izveidojām</p>
+                  <p className="text-sm font-semibold text-white">Jaunā versija priekš jums</p>
                 </div>
-                <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-blue-300 text-[11px] font-semibold px-2.5 py-1 rounded-lg">
+                <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-highlight text-[11px] font-semibold px-2.5 py-1 rounded-lg">
                   {AUDIT.timeTag}
                 </span>
               </div>
@@ -348,7 +348,7 @@ export default function App() {
                 {AUDIT.gains.map((g) => (
                   <div key={g} className="flex items-start gap-3">
                     <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 text-xs font-bold">✓</span>
-                    <span className="text-sm text-white/70">{g}</span>
+                    <span className="text-sm text-white">{g}</span>
                   </div>
                 ))}
               </div>
