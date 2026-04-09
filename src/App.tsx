@@ -289,6 +289,9 @@ export default function App() {
         </header>
 
         <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
+          {/* Client logo */}
+          <img src={MEXA.logo} alt="MEXA" className="h-16 object-contain mb-6 opacity-80" />
+
           {/* Intro */}
           <div className="max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-8">
@@ -310,7 +313,7 @@ export default function App() {
           {/* Audit cards */}
           <div className="max-w-4xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-10">
             {/* Before */}
-            <div className="border border-red-100 rounded-2xl overflow-hidden">
+            <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white">
               <div className="bg-red-50 px-6 py-4 flex items-center justify-between">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-red-400 mb-0.5">Ko mēs pamanījām</p>
@@ -331,7 +334,7 @@ export default function App() {
             </div>
 
             {/* After */}
-            <div className="border border-blue-100 rounded-2xl overflow-hidden">
+            <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white">
               <div className="bg-blue-50 px-6 py-4 flex items-center justify-between">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue-400 mb-0.5">Ko mēs izveidojām</p>
