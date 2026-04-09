@@ -230,7 +230,10 @@ export default function App() {
           <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <img src={CS_LOGO} alt="ClicksScale" className="h-10 object-contain" />
-              <p className="text-[11px] text-gray-400 hidden sm:block">Tīmekļa izstrādes & digitālā mārketinga aģentūra</p>
+              <div className="hidden sm:flex flex-col justify-center leading-tight">
+                <p className="text-[13px] font-semibold text-gray-800">Tīmekļa izstrādes &amp;</p>
+                <p className="text-[13px] font-semibold text-gray-800">digitālā mārketinga aģentūra</p>
+              </div>
             </div>
             <div className="flex items-center gap-3">
               <a href="https://clickscale.agency/lv/veiksmes-stasti" target="_blank" rel="noopener noreferrer"
