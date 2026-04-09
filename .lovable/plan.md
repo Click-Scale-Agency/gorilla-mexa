@@ -1,28 +1,16 @@
 
 
-## Plan: Add Scrolling Text Ticker Between Hero and MEXA Section
+## Plan: Increase Text Contrast in Audit Cards
 
 ### What changes
-Insert a horizontal scrolling ticker/marquee between the hero section (Section 1) and the MEXA showcase (Section 2) with bold electronic/digital display font, green background, and repeating text: **MEX JAUNĀ MĀJAS LAPA ⭐️ MEX JAUNĀ MĀJAS LAPA ⭐️**
+Make the list item text in both "Before" and "After" audit cards more readable by increasing opacity/contrast.
 
 ### Changes
 
-**File: `src/App.tsx` (between line 367 and 369)**
-- Add a new `<div>` with green background (`MEXA.green`) containing a CSS-animated marquee
-- The marquee contains the text repeated multiple times for seamless looping
-- Use inline `@keyframes marquee` via a `<style>` tag or Tailwind animation
-- Apply a bold, electronic/tablo-style font (monospace or digital display feel) — use `font-mono font-black uppercase tracking-widest`
+**File: `src/App.tsx`**
 
-**File: `tailwind.config.ts`**
-- Add `marquee` keyframe: `0% { transform: translateX(0) }` to `100% { transform: translateX(-50%) }`
-- Add `animate-marquee` utility: `marquee 15s linear infinite`
-
-**File: `src/index.css`**
-- Import a digital/electronic display font from Google Fonts: `Orbitron` (bold electronic tablo style)
-
-### Visual result
-- Full-width green bar with white text
-- Text slides continuously left-to-right in a loop
-- Bold electronic font gives a "digital display board" feel
-- Sits as a visual divider between the gradient hero and the MEXA green section
+1. **List item text** (lines 330, 351): Change `text-white/70` to `text-white` for the problem/gain descriptions
+2. **Subheading text** (lines 320, 341): Change `text-white/90` to `text-white` for "Vecā mājaslapa" / "Jaunā versija priekš jums"
+3. **Header labels** (lines 319, 340): Change `text-red-300` to `text-red-400` and `text-blue-300` to `text-highlight` for stronger color pop
+4. **Badge text** (lines 322, 343): Same color updates for consistency
 
