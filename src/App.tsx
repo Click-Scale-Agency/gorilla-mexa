@@ -366,6 +366,17 @@ export default function App() {
         </div>
       </section>
 
+      {/* Scrolling ticker */}
+      <div style={{ backgroundColor: MEXA.green }} className="overflow-hidden whitespace-nowrap py-4">
+        <div className="inline-block animate-marquee">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span key={i} className="inline-block px-6 text-2xl font-black uppercase tracking-[0.15em] text-white" style={{ fontFamily: "'Orbitron', sans-serif" }}>
+              MEXA JAUNĀ MĀJAS LAPA ⭐️
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* ══════════════════════════════════════════════════════
           SECTION 2 — MEXA SHOWCASE
       ══════════════════════════════════════════════════════ */}

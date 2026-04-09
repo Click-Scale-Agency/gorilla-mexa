@@ -106,6 +106,10 @@ export default {
           "0%, 100%": { transform: "translateY(0)", opacity: "1" },
           "50%": { transform: "translateY(4px)", opacity: "0.7" },
         },
+        "marquee": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
         "pulse-glow": {
           "0%, 100%": { boxShadow: "0 0 15px 0 rgba(37, 99, 235, 0.3)" },
           "50%": { boxShadow: "0 0 25px 8px rgba(37, 99, 235, 0.5)" },
@@ -118,6 +122,7 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "chevron-bounce": "chevron-bounce 1.5s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2.5s ease-in-out infinite",
+        "marquee": "marquee 15s linear infinite",
       },
     },
   },
