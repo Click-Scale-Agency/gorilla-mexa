@@ -297,7 +297,7 @@ export default function App() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
               </span>
-              Personalizēta demonstrācija — MEXA
+              Personalizēta demonstrācija — MEXA.LV
             </div>
           </div>
 
