@@ -358,7 +358,7 @@ export default function App() {
           {/* CTA */}
           <button
             onClick={() => scrollTo("mexa")}
-            className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg animate-bounce-gentle"
+            className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg animate-float"
           >
             Skatīt demonstrāciju <span className="inline-block animate-chevron-bounce"><ChevronDown /></span>
           </button>
