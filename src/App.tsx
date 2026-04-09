@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 const CS_LOGO = "https://clickscale.agency/assets/click-scale-logo-IBjJ635-.png";
 
 const TEAM = [
-  { initials: "KK", name: "Kristaps Krankelis", title: "Līdzdibinātājs un CEO", linkedin: "#" },
-  { initials: "MĀ", name: "Mārtiņš Āriņš", title: "Līdzdibinātājs un stratēģijas direktors", linkedin: "#" },
+  { photo: "https://clickscale.agency/assets/kristaps-krankelis-CDjPm5xS.png", name: "Kristaps Krankelis", title: "Līdzdibinātājs un CEO", linkedin: "#" },
+  { photo: "https://clickscale.agency/assets/martins-arins-C_NV8N2_.png", name: "Mārtiņš Āriņš", title: "Līdzdibinātājs un stratēģijas direktors", linkedin: "#" },
 ];
 
 const SKILLS = [
@@ -119,11 +119,83 @@ const AUDIT = {
   ],
 };
 
+// ─── SEO content (swap per client) ───────────────────────────────────────────
+const TESTIMONIALS = [
+  {
+    name: "Jānis Kalniņš",
+    company: "ZS \"Kalnāji\", Jelgava",
+    text: "T232 mobilo kalti uzstādījām 2021. gadā. Trīs sezonas, nulle problēmu. MEXA serviss reaģē 24 stundu laikā — tas ir svarīgi ražas laikā.",
+    stars: 5,
+  },
+  {
+    name: "Andris Pētersons",
+    company: "SIA \"Lauku Darbi\", Dobele",
+    text: "Stacionārā 2100 sērija atmaksājās divās sezonās. Zinošs personāls, godīgas cenas, reāli rezultāti. Ar MEXA sadarbojos jau 7 gadus.",
+    stars: 5,
+  },
+  {
+    name: "Māris Liepiņš",
+    company: "ZS \"Ozolkalni\", Cēsis",
+    text: "Piegāde laikā, montāža profesionāla. GSI kvalitāte ar Latvijas servisu — labākā kombinācija. Noteikti ieteiktu ikvienam zemnieku saimniecībai.",
+    stars: 5,
+  },
+];
+
+const FAQ_ITEMS = [
+  { q: "Kādi modeļi ir piemēroti mazām saimniecībām?", a: "T-sērijas mobilās kaltes ir ideālas mazākām un vidēja lieluma saimniecībām — elastīgas, viegli transportējamas un ekonomiski izdevīgas." },
+  { q: "Vai MEXA nodrošina uzstādīšanu un servisu?", a: "Jā. Mēs nodrošinām pilnu pakalpojumu ciklu: konsultācija → piegāde → uzstādīšana → pēcpārdošanas serviss → rezerves daļas." },
+  { q: "Cik ilgs ir garantijas laiks GSI aprīkojumam?", a: "Standarta garantija ir 12 mēneši no uzstādīšanas brīža. Atsevišķām sistēmām pieejama pagarinātā garantija." },
+  { q: "Vai piegādājat iekārtas uz Lietuvu un Igauniju?", a: "Jā — esam GSI (ASV) oficiālais pārstāvis visās trīs Baltijas valstīs kopš 2001. gada. Piegādājam un apkalpojam visā reģionā." },
+  { q: "Kā notiek konsultācija un kā saņemt piedāvājumu?", a: "Sazinieties pa tālruni vai e-pastu. Mūsu speciālists novērtēs jūsu vajadzības un bez maksas sagatavos individuālu piedāvājumu." },
+  { q: "Vai ir pieejamas finansēšanas iespējas?", a: "Mēs sadarbojamies ar finanšu partneriem. Jautājiet mūsu konsultantam par šobrīd pieejamajiem finansēšanas risinājumiem." },
+];
+
+const Stars = ({ n }: { n: number }) => (
+  <div className="flex gap-0.5 text-yellow-400 text-base leading-none">
+    {Array.from({ length: 5 }).map((_, i) => <span key={i} className={i < n ? "text-yellow-400" : "text-gray-200"}>★</span>)}
+  </div>
+);
+
 // ─── App ──────────────────────────────────────────────────────────────────────
 export default function App() {
   const [slide, setSlide] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
   const [showBanner, setShowBanner] = useState(true);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  // Schema.org JSON-LD — FAQPage + LocalBusiness (SEO, swapped per client)
+  useEffect(() => {
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "name": "MEXA SIA",
+          "description": "GSI (ASV) oficiālais pārstāvis Baltijas valstīs. Graudu kaltes, transportēšanas iekārtas un uzglabāšanas torņi kopš 2001.",
+          "address": { "@type": "PostalAddress", "streetAddress": "Tirgoņu iela 4a", "addressLocality": "Cēsis", "postalCode": "LV-4101", "addressCountry": "LV" },
+          "telephone": "+37126588885",
+          "email": "a.barkans@mexa.lv",
+          "areaServed": ["Latvia", "Lithuania", "Estonia"],
+          "foundingDate": "2001",
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": FAQ_ITEMS.map(({ q, a }) => ({
+            "@type": "Question",
+            "name": q,
+            "acceptedAnswer": { "@type": "Answer", "text": a },
+          })),
+        },
+      ],
+    };
+    const el = document.createElement("script");
+    el.type = "application/ld+json";
+    el.id = "page-schema";
+    el.textContent = JSON.stringify(schema);
+    document.getElementById("page-schema")?.remove();
+    document.head.appendChild(el);
+    return () => { document.getElementById("page-schema")?.remove(); };
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -156,12 +228,9 @@ export default function App() {
       <section className="bg-white min-h-screen flex flex-col">
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <img src={CS_LOGO} alt="ClicksScale" className="h-9 w-9 rounded-full object-contain shadow-sm" />
-              <div>
-                <p className="text-sm font-bold text-gray-900 leading-tight">ClicksScale</p>
-                <p className="text-[11px] text-gray-400">Tīmekļa izstrādes & digitālā mārketinga aģentūra</p>
-              </div>
+            <div className="flex items-center gap-4">
+              <img src={CS_LOGO} alt="ClicksScale" className="h-10 object-contain" />
+              <p className="text-[11px] text-gray-400 hidden sm:block">Tīmekļa izstrādes & digitālā mārketinga aģentūra</p>
             </div>
             <div className="flex items-center gap-3">
               <a href="https://clickscale.agency/lv/veiksmes-stasti" target="_blank" rel="noopener noreferrer"
@@ -423,6 +492,28 @@ export default function App() {
           </div>
         </div>
 
+        {/* Atsauksmes */}
+        <div className="bg-white py-16 px-6 border-t border-gray-100">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="text-xs font-bold uppercase tracking-[0.15em] mb-2" style={{ color: MEXA.green }}>Atsauksmes</p>
+              <h3 className="text-3xl font-extrabold text-gray-900">Ko saka mūsu klienti</h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {TESTIMONIALS.map(({ name, company, text, stars }) => (
+                <div key={name} className="bg-gray-50 rounded-2xl p-6 flex flex-col gap-4 border border-gray-100">
+                  <Stars n={stars} />
+                  <p className="text-sm text-gray-600 leading-relaxed flex-1">"{text}"</p>
+                  <div>
+                    <p className="text-sm font-bold text-gray-900">{name}</p>
+                    <p className="text-[11px] text-gray-400 mt-0.5">{company}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Coolers */}
         <div className="bg-white py-16 px-6">
           <div className="max-w-5xl mx-auto">
@@ -450,6 +541,36 @@ export default function App() {
                 <div className="text-green-100 text-sm">{s.l}</div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* BUJ — Bieži Uzdotie Jautājumi */}
+        <div className="bg-white py-16 px-6 border-t border-gray-100">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="text-xs font-bold uppercase tracking-[0.15em] mb-2" style={{ color: MEXA.green }}>BUJ</p>
+              <h3 className="text-3xl font-extrabold text-gray-900">Bieži uzdotie jautājumi</h3>
+            </div>
+            <div className="space-y-3">
+              {FAQ_ITEMS.map(({ q, a }, i) => (
+                <div key={q} className="border border-gray-200 rounded-xl overflow-hidden">
+                  <button
+                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    className="w-full flex items-center justify-between px-6 py-4 text-left cursor-pointer hover:bg-gray-50 transition-colors"
+                  >
+                    <span className="text-sm font-semibold text-gray-900 pr-4">{q}</span>
+                    <span className="flex-shrink-0 text-gray-400 text-lg leading-none transition-transform duration-200" style={{ transform: openFaq === i ? "rotate(180deg)" : "none" }}>
+                      ▾
+                    </span>
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-6 pb-5 text-sm text-gray-500 leading-relaxed border-t border-gray-100 pt-4">
+                      {a}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -562,11 +683,9 @@ export default function App() {
               Mēs esam saliedēta komanda, kas izturas pret katru klientu kā pret ģimeni — dziļa kompetence apvienota ar patiesu rūpi par tavu panākumu.
             </p>
             <div className="grid grid-cols-2 gap-4 mb-7">
-              {TEAM.map(({ initials, name, title, linkedin }) => (
+              {TEAM.map(({ photo, name, title, linkedin }) => (
                 <div key={name} className="bg-gray-50 rounded-xl p-5 flex flex-col items-center text-center">
-                  <div className="w-14 h-14 rounded-full bg-blue-600 text-white text-lg font-extrabold flex items-center justify-center mb-3 shadow-sm">
-                    {initials}
-                  </div>
+                  <img src={photo} alt={name} className="w-16 h-16 rounded-full object-cover mb-3 shadow-sm" />
                   <p className="text-sm font-bold text-gray-900 leading-tight">{name}</p>
                   <p className="text-[11px] text-gray-400 mt-0.5 mb-3 leading-tight">{title}</p>
                   <a href={linkedin} target="_blank" rel="noopener noreferrer"
