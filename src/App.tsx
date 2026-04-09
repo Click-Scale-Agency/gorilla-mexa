@@ -264,7 +264,7 @@ export default function App() {
       {/* ══════════════════════════════════════════════════════
           SECTION 1 — CLICKSSCALE DEMO FRAME
       ══════════════════════════════════════════════════════ */}
-      <section className="bg-white min-h-screen flex flex-col">
+      <section className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(135deg, #0238F4 0%, #7A1DF2 45%, #00D6C9 100%)' }}>
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
             <div className="flex items-center gap-4">
