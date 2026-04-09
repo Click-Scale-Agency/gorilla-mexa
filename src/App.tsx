@@ -106,6 +106,7 @@ const AUDIT = {
 export default function App() {
   const [slide, setSlide] = useState(0);
   const [fadeIn, setFadeIn] = useState(true);
+  const [showBanner, setShowBanner] = useState(true);
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -237,16 +238,52 @@ export default function App() {
       ══════════════════════════════════════════════════════ */}
       <div id="mexa">
 
+        {/* Announcement bar */}
+        {showBanner && (
+          <div style={{ backgroundColor: MEXA.green }} className="relative flex items-center justify-center px-6 py-2 text-white text-sm font-semibold">
+            <span className="mr-3">MEXA katalogs</span>
+            <button
+              onClick={(e) => e.preventDefault()}
+              className="bg-white/20 hover:bg-white/30 border border-white/40 text-white text-xs font-bold px-3 py-0.5 rounded transition-colors cursor-pointer"
+            >
+              Skatīt!
+            </button>
+            <button
+              onClick={() => setShowBanner(false)}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white text-lg leading-none cursor-pointer"
+            >
+              ×
+            </button>
+          </div>
+        )}
+
         {/* Nav */}
         <nav style={{ backgroundColor: MEXA.greenDark }} className="sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
             <img src={MEXA.logo} alt="MEXA" className="h-12 py-1 object-contain" />
             <div className="hidden md:flex items-center">
               {NAV.map((item) => (
-                <a key={item} href="#" onClick={(e) => e.preventDefault()}
-                  className="text-white text-xs font-semibold px-3 py-4 hover:opacity-80 transition-opacity uppercase tracking-wide whitespace-nowrap cursor-pointer">
-                  {item}
-                </a>
+                item === "Graudu kaltes" ? (
+                  <div key={item} className="relative group">
+                    <a href="#" onClick={(e) => e.preventDefault()}
+                      className="text-white text-xs font-semibold px-3 py-4 hover:opacity-80 transition-opacity uppercase tracking-wide whitespace-nowrap cursor-pointer flex items-center gap-1 block">
+                      {item} <span className="text-white/60 text-[10px]">▾</span>
+                    </a>
+                    <div className="absolute left-0 top-full hidden group-hover:block bg-white shadow-lg border border-gray-100 min-w-[220px] z-50">
+                      {["Mobilās graudu kaltes", "Stacionārās graudu kaltes", "Tornkaltes", "Portatīvās kaltes X-Stream"].map((sub) => (
+                        <a key={sub} href="#" onClick={(e) => e.preventDefault()}
+                          className="block px-5 py-3 text-xs font-semibold text-gray-700 hover:bg-gray-50 uppercase tracking-wide border-b border-gray-100 last:border-0 cursor-pointer">
+                          {sub}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <a key={item} href="#" onClick={(e) => e.preventDefault()}
+                    className="text-white text-xs font-semibold px-3 py-4 hover:opacity-80 transition-opacity uppercase tracking-wide whitespace-nowrap cursor-pointer">
+                    {item}
+                  </a>
+                )
               ))}
             </div>
             <div className="md:hidden text-white text-2xl px-3 py-3 cursor-pointer">☰</div>
@@ -430,10 +467,38 @@ export default function App() {
         </div>
 
         {/* MEXA footer */}
-        <div style={{ backgroundColor: MEXA.greenDeep }} className="py-6 px-6">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3">
-            <img src={MEXA.logo} alt="MEXA" className="h-8 object-contain opacity-80" />
-            <p className="text-green-300/60 text-xs text-center">© {new Date().getFullYear()} MEXA SIA · Tirgoņu iela 4a, Cēsis · mexa.lv</p>
+        <div className="bg-[#3a3a3a] py-10 px-6">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+            {/* Logo + addresses */}
+            <div className="md:col-span-2">
+              <img src={MEXA.logo} alt="MEXA" className="h-12 object-contain mb-5 brightness-0 invert opacity-90" />
+              <div className="text-gray-300 text-xs leading-relaxed space-y-0.5">
+                <p className="font-bold text-white mb-2">MEXA, SIA</p>
+                <p>Rīga, Vienības gatve 38a</p>
+                <p>Cēsis, Tirgoņu iela 4a</p>
+                <p>Valdlauči "Izstāžu komplekss RĀMAVA",</p>
+                <p>Ķekavas novads</p>
+                <p className="mt-2">Tālrunis: <span className="text-white">+371 64161740</span></p>
+              </div>
+            </div>
+            {/* Valdes priekšsēdētājs */}
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">Valdes priekšsēdētājs</p>
+              <p className="text-white font-semibold text-sm mb-3">Ainārs Barkāns</p>
+              <div className="text-gray-300 text-xs space-y-1">
+                <p>Tālrunis: <span className="text-white">+371 26588885</span></p>
+                <p>E-pasts: <a href="mailto:a.barkans@mexa.lv" className="text-green-400 hover:text-green-300">a.barkans@mexa.lv</a></p>
+              </div>
+            </div>
+            {/* Komercdirektors */}
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-3">Komercdirektors</p>
+              <p className="text-white font-semibold text-sm mb-3">Ēriks Dainis</p>
+              <div className="text-gray-300 text-xs space-y-1">
+                <p>Tālrunis: <span className="text-white">+371 29276699</span></p>
+                <p>E-pasts: <a href="mailto:eriksdainis@mexa.lv" className="text-green-400 hover:text-green-300">eriksdainis@mexa.lv</a></p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
