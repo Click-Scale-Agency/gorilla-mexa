@@ -122,7 +122,7 @@ export default {
         "float": "float 3s ease-in-out infinite",
         "chevron-bounce": "chevron-bounce 1.5s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2.5s ease-in-out infinite",
-        "marquee": "marquee 15s linear infinite",
+        "marquee": "marquee 30s linear infinite",
       },
     },
   },
