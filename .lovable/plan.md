@@ -1,15 +1,13 @@
 
 
-## Plan: Place Logo and Status Pill in Two Columns
+## Plan: Replace "48 st. laikā" with Nav-Style Pill
 
 ### What changes
-Arrange the MEXA logo and the "Personalizēta demonstrācija — MEXA" pill side-by-side in a horizontal row with two columns, instead of the current stacked vertical layout.
+Replace the `{AUDIT.timeTag}` badge in the "After" card header (line 345-347) with a pill styled like the nav "Demo lapa" pill — yellow background with dark text.
 
 ### Changes
 
-**File: `src/App.tsx` (lines 291-303)**
-1. Wrap the logo (`img`) and the status pill (`div` with pulsing dot) in a `flex flex-row items-center justify-center gap-8` container
-2. Remove `mb-6` from the logo (spacing now handled by gap)
-3. Remove `mb-8` from the pill (spacing now handled by parent)
-4. Add `mb-8` to the new row container for spacing below before the heading
+**File: `src/App.tsx` (lines 345-347)**
+- Replace the current `<span>` with a pill matching the nav style: `bg-highlight text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full`
+- Keep the text as "Demo lapa" to match the nav pill exactly
 
