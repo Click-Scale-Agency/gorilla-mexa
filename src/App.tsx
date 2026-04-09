@@ -466,7 +466,7 @@ export default function App() {
                 No 2001. gada uzņēmums aktīvi iesaistās graudu primārās apstrādes kompleksu projektēšanā, biznesa procesu pilnveidošanā, graudu primārās apstrādes procesā — graudu transportēšanā, kaltēšanā, uzglabāšanā.
               </p>
               <p className="font-bold text-sm" style={{ color: MEXA.green }}>
-                TAGAD ESAM AR "Izstāžu kompleksa RĀMAVA" Ķekavos novada Valdlaucos
+                TAGAD ESAM AR "Izstāžu kompleksa RĀMAVA" Ķekavos novada Valdlaučos
               </p>
             </div>
           </div>
