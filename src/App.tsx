@@ -295,8 +295,7 @@ export default function App() {
           {/* Intro */}
           <div className="max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full mb-8">
-              <img src={MEXA.logo} alt="MEXA" className="h-5 object-contain brightness-0 invert" />
-              <span className="w-px h-4 bg-white/30" />
+              <span className="relative flex h-2 w-2">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
