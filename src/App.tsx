@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 
 // ─── ClicksScale brand ────────────────────────────────────────────────────────
-const CS_LOGO =
-  "https://storage.googleapis.com/gpt-engineer-file-uploads/9xh2hCCh94Tp5EyhUvXQdPhcEWK2/uploads/1763656087512-Click%20Scale%20Favicon.png";
+const CS_LOGO = "https://clickscale.agency/assets/click-scale-logo-IBjJ635-.png";
+
+const TEAM = [
+  { initials: "KK", name: "Kristaps Krankelis", title: "Līdzdibinātājs un CEO", linkedin: "#" },
+  { initials: "MĀ", name: "Mārtiņš Āriņš", title: "Līdzdibinātājs un stratēģijas direktors", linkedin: "#" },
+];
+
+const SKILLS = [
+  "Performance marketing", "E-komercijas izstrāde", "Konversiju optimizācija",
+  "Datu balstīta pieeja", "Mērogojami risinājumi", "Ilgtermiņa sadarbība", "Stratēģiskā plānošana",
+];
 
 // ─── MEXA assets — proxied via wsrv.nl for HTTPS (mexa.lv has no SSL) ───────
 const px = (path: string) => `https://wsrv.nl/?url=mexa.lv${path}`;
@@ -542,6 +551,39 @@ export default function App() {
               className="inline-flex items-center gap-2 border-2 border-blue-200 hover:border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 cursor-pointer text-base">
               Apskati mūsu citus klientus <ArrowRight />
             </a>
+          </div>
+        </div>
+
+        {/* ── Team section ───────────────────────────────────── */}
+        <div className="max-w-2xl mx-auto px-6 pb-10">
+          <div className="border-t border-gray-100 pt-10 text-center">
+            <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-gray-400 mb-2">Mūsu komanda</p>
+            <p className="text-sm text-gray-400 mb-7 max-w-md mx-auto leading-relaxed">
+              Mēs esam saliedēta komanda, kas izturas pret katru klientu kā pret ģimeni — dziļa kompetence apvienota ar patiesu rūpi par tavu panākumu.
+            </p>
+            <div className="grid grid-cols-2 gap-4 mb-7">
+              {TEAM.map(({ initials, name, title, linkedin }) => (
+                <div key={name} className="bg-gray-50 rounded-xl p-5 flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-full bg-blue-600 text-white text-lg font-extrabold flex items-center justify-center mb-3 shadow-sm">
+                    {initials}
+                  </div>
+                  <p className="text-sm font-bold text-gray-900 leading-tight">{name}</p>
+                  <p className="text-[11px] text-gray-400 mt-0.5 mb-3 leading-tight">{title}</p>
+                  <a href={linkedin} target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 border border-blue-100 hover:border-blue-300 bg-white px-3 py-1.5 rounded-lg transition-colors cursor-pointer">
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
+                  </a>
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-wrap justify-center gap-2">
+              {SKILLS.map((s) => (
+                <span key={s} className="text-[11px] font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                  {s}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
