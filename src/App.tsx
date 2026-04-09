@@ -370,7 +370,7 @@ export default function App() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
               <p className="text-xs font-bold uppercase tracking-[0.15em] mb-2" style={{ color: MEXA.green }}>SILDĪTĀJI</p>
-              <h3 className="text-3xl font-extrabold text-gray-900">Graudu sildīšnas risinājumi</h3>
+              <h3 className="text-3xl font-extrabold text-gray-900">Graudu sildīšanas risinājumi</h3>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
               {MEXA.coolers.map((c) => (
