@@ -264,24 +264,26 @@ export default function App() {
       {/* ══════════════════════════════════════════════════════
           SECTION 1 — CLICKSSCALE DEMO FRAME
       ══════════════════════════════════════════════════════ */}
-      <section className="min-h-screen flex flex-col" style={{ background: 'linear-gradient(135deg, #0238F4 0%, #7A1DF2 45%, #00D6C9 100%)' }}>
-        <header className="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/10">
-          <div className="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <img src={CS_LOGO} alt="ClicksScale" className="h-10 object-contain brightness-0 invert" />
-              <div className="hidden sm:flex flex-col justify-center leading-tight">
-                <p className="text-[13px] font-semibold text-white/90">Tīmekļa izstrādes &amp;</p>
-                <p className="text-[13px] font-semibold text-white/90">digitālā mārketinga aģentūra</p>
+      <section className="min-h-screen flex flex-col font-body" style={{ background: 'linear-gradient(135deg, #0238F4 0%, #7A1DF2 45%, #00D6C9 100%)' }}>
+        <header className="sticky top-0 z-50">
+          <div className="max-w-5xl mx-auto px-4 pt-4">
+            <div className="bg-white/90 backdrop-blur-xl rounded-full shadow-xl border border-white/50 px-6 py-2.5 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <img src={CS_LOGO} alt="ClicksScale" className="h-8 object-contain" />
+                <div className="hidden sm:flex flex-col justify-center leading-tight">
+                  <p className="text-[11px] font-semibold text-gray-600">Tīmekļa izstrādes &amp;</p>
+                  <p className="text-[11px] font-semibold text-gray-600">digitālā mārketinga aģentūra</p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <a href="https://clickscale.agency/lv/veiksmes-stasti" target="_blank" rel="noopener noreferrer"
-                className="text-sm font-semibold text-white hover:bg-white/20 border border-white/30 hover:border-white/50 px-4 py-1.5 rounded-lg transition-all duration-200 hidden sm:block whitespace-nowrap">
-                Apskati mūsu citus klientus
-              </a>
-              <span className="bg-white/15 border border-white/20 text-white text-[11px] font-semibold px-3 py-1 rounded-full">
-                Demo lapa
-              </span>
+              <div className="flex items-center gap-3">
+                <a href="https://clickscale.agency/lv/veiksmes-stasti" target="_blank" rel="noopener noreferrer"
+                  className="text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-4 py-1.5 rounded-full transition-all duration-200 hidden sm:block whitespace-nowrap">
+                  Apskati mūsu citus klientus
+                </a>
+                <span className="bg-highlight text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full">
+                  Demo lapa
+                </span>
+              </div>
             </div>
           </div>
         </header>
@@ -353,11 +355,11 @@ export default function App() {
           {/* CTA */}
           <button
             onClick={() => scrollTo("mexa")}
-            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-lg animate-bounce-gentle animate-pulse-glow"
+            className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg animate-bounce-gentle"
           >
             Skatīt demonstrāciju <span className="inline-block animate-chevron-bounce"><ChevronDown /></span>
           </button>
-          <p className="mt-5 text-xs text-gray-400">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
+          <p className="mt-5 text-xs text-white/50">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
         </div>
       </section>
 

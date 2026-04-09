@@ -57,6 +57,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        highlight: {
+          DEFAULT: "hsl(var(--highlight))",
+          foreground: "hsl(var(--highlight-foreground))",
+        },
+      },
+      fontFamily: {
+        heading: ["var(--font-heading)"],
+        body: ["var(--font-body)"],
+      },
+      boxShadow: {
+        "glow-yellow": "0 0 20px 2px hsl(76 100% 57% / 0.35)",
+        "glow-yellow-lg": "0 0 30px 6px hsl(76 100% 57% / 0.5)",
       },
       borderRadius: {
         lg: "var(--radius)",
