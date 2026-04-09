@@ -80,6 +80,28 @@ const MapPin = () => (
   </svg>
 );
 
+// ─── Audit data (swap per client) ────────────────────────────────────────────
+const AUDIT = {
+  domain: "mexa.lv",
+  timeTag: "48 st. laikā",
+  problems: [
+    "Pēdējo reizi atjaunota pirms vairāk kā 10 gadiem",
+    "Nav redzama telefonā vai planšetē",
+    "Bildes neielādējas — nav drošā savienojuma",
+    "Google to neredz meklēšanas rezultātos",
+    "Kontaktinformācija nav uzreiz pamanāma",
+    "Produkti nav skaidri parādīti ar bildēm un cenām",
+  ],
+  gains: [
+    "Darbojas uz tālruņa, planšetes un datora",
+    "Visi produkti ar īstajām bildēm un aprakstiem",
+    "Kontakts redzams uzreiz — apmeklētājs var zvanīt ar 1 klikšķi",
+    "Droša vietne — darbojas visos mūsdienu pārlūkos",
+    "Jūsu brendings: zaļā krāsa, logo, produktu struktūra",
+    "Izskats, kas atbilst jūsu GSI sertifikācijas statusam",
+  ],
+};
+
 // ─── App ──────────────────────────────────────────────────────────────────────
 export default function App() {
   const [slide, setSlide] = useState(0);
@@ -123,13 +145,20 @@ export default function App() {
                 <p className="text-[11px] text-gray-400">Web Development Agency</p>
               </div>
             </div>
-            <span className="bg-blue-50 border border-blue-100 text-blue-700 text-[11px] font-semibold px-3 py-1 rounded-full">
-              Demo lapa
-            </span>
+            <div className="flex items-center gap-3">
+              <a href="https://clickscale.agency/case-studies" target="_blank" rel="noopener noreferrer"
+                className="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors hidden sm:block">
+                Case Studies
+              </a>
+              <span className="bg-blue-50 border border-blue-100 text-blue-700 text-[11px] font-semibold px-3 py-1 rounded-full">
+                Demo lapa
+              </span>
+            </div>
           </div>
         </header>
 
-        <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-24">
+        <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
+          {/* Intro */}
           <div className="max-w-2xl mx-auto">
             <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-8">
               <span className="relative flex h-2 w-2">
@@ -138,21 +167,68 @@ export default function App() {
               </span>
               Personalizēta demonstrācija — MEXA
             </div>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-6">
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-4">
               Mēs izveidojām šo lapu<br />
               <span className="text-blue-600">speciāli priekš jums</span>
             </h1>
-            <p className="text-xl text-gray-500 leading-relaxed mb-10">
-              Zemāk redzat, kā MEXA mājaslapa varētu izskatīties — tāda pati struktūra, jūsu bildes, jūsu produkti. Tikai moderna.
+            <p className="text-lg text-gray-400 mb-10">
+              Zemāk redzat, ko mēs pamanījām jūsu mājaslapā — un ko mēs izveidojām.
             </p>
-            <button
-              onClick={() => scrollTo("mexa")}
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-lg"
-            >
-              Skatīt demonstrāciju <ChevronDown />
-            </button>
-            <p className="mt-5 text-xs text-gray-400">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
           </div>
+
+          {/* Audit cards */}
+          <div className="max-w-4xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-10">
+            {/* Before */}
+            <div className="border border-red-100 rounded-2xl overflow-hidden">
+              <div className="bg-red-50 px-6 py-4 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-red-400 mb-0.5">Ko mēs pamanījām</p>
+                  <p className="text-sm font-semibold text-gray-700">Vecā mājaslapa</p>
+                </div>
+                <span className="bg-white border border-red-100 text-red-500 text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg">
+                  {AUDIT.domain}
+                </span>
+              </div>
+              <div className="px-6 py-5 space-y-3">
+                {AUDIT.problems.map((p) => (
+                  <div key={p} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-red-50 flex items-center justify-center text-red-500 text-xs font-bold">✕</span>
+                    <span className="text-sm text-gray-600">{p}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* After */}
+            <div className="border border-blue-100 rounded-2xl overflow-hidden">
+              <div className="bg-blue-50 px-6 py-4 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-blue-400 mb-0.5">Ko mēs izveidojām</p>
+                  <p className="text-sm font-semibold text-gray-700">Jaunā versija priekš jums</p>
+                </div>
+                <span className="bg-white border border-blue-100 text-blue-500 text-[11px] font-semibold px-2.5 py-1 rounded-lg">
+                  {AUDIT.timeTag}
+                </span>
+              </div>
+              <div className="px-6 py-5 space-y-3">
+                {AUDIT.gains.map((g) => (
+                  <div key={g} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 text-xs font-bold">✓</span>
+                    <span className="text-sm text-gray-600">{g}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <button
+            onClick={() => scrollTo("mexa")}
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-lg"
+          >
+            Skatīt demonstrāciju <ChevronDown />
+          </button>
+          <p className="mt-5 text-xs text-gray-400">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
         </div>
       </section>
 
