@@ -115,6 +115,7 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "bounce-gentle": "bounce-gentle 2s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite",
+        "float": "float 3s ease-in-out infinite",
         "chevron-bounce": "chevron-bounce 1.5s ease-in-out infinite",
         "pulse-glow": "pulse-glow 2.5s ease-in-out infinite",
       },
