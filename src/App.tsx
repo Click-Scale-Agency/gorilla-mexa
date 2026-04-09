@@ -179,6 +179,20 @@ export default function App() {
   const [openCsFaq, setOpenCsFaq] = useState<number | null>(null);
   const [showDemoToast, setShowDemoToast] = useState(false);
   const demoToast = (e: React.MouseEvent) => { e.preventDefault(); setShowDemoToast(true); setTimeout(() => setShowDemoToast(false), 3500); };
+  const scrollTeased = useRef(false);
+
+  // Scroll-tease: subtle peek-scroll on first load
+  useEffect(() => {
+    if (scrollTeased.current) return;
+    scrollTeased.current = true;
+    const timer = setTimeout(() => {
+      window.scrollTo({ top: 120, behavior: "smooth" });
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }, 600);
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Schema.org JSON-LD — FAQPage + LocalBusiness (SEO, swapped per client)
   useEffect(() => {
