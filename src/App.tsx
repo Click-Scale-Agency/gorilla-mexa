@@ -839,7 +839,7 @@ export default function App() {
                   </svg>
                 </div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-blue-500 mb-1">Jaunums</p>
-                <p className="text-sm font-extrabold text-gray-900 leading-tight mb-2">Mākslīgā Intelekta pielietojums biznesā</p>
+                <p className="text-sm font-extrabold text-gray-900 leading-tight mb-2">Mākslīgā Intelekta pielietojums Tavā biznesā</p>
                 <p className="text-[11px] text-gray-500 mb-4 leading-relaxed">Tas nav zinātniskā fantastika — mēs to būvējam jau šodien.</p>
                 <ul className="space-y-2 flex-1">
                   {[
