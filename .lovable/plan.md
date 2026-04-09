@@ -1,16 +1,20 @@
 
-
-## Plan: Increase Text Contrast in Audit Cards
+## Plan: Add MEXA Logo to Nav + Yellow "DEMO lapa" Pill
 
 ### What changes
-Make the list item text in both "Before" and "After" audit cards more readable by increasing opacity/contrast.
+Add the uploaded MEXA logo to the navigation bar (left side, next to ClickScale logo) and ensure the yellow pill badge says "DEMO lapa".
 
 ### Changes
 
-**File: `src/App.tsx`**
+**1. Copy uploaded logo to project**
+- Copy `user-uploads://Screenshot_2026-04-09_at_21.23.12.png` to `src/assets/mexa-logo-nav.png`
 
-1. **List item text** (lines 330, 351): Change `text-white/70` to `text-white` for the problem/gain descriptions
-2. **Subheading text** (lines 320, 341): Change `text-white/90` to `text-white` for "Vecā mājaslapa" / "Jaunā versija priekš jums"
-3. **Header labels** (lines 319, 340): Change `text-red-300` to `text-red-400` and `text-blue-300` to `text-highlight` for stronger color pop
-4. **Badge text** (lines 322, 343): Same color updates for consistency
+**2. File: `src/App.tsx`**
+- Import the MEXA nav logo: `import mexaLogoNav from "@/assets/mexa-logo-nav.png"`
+- In the nav bar (line ~271-276), add the MEXA logo image between the ClickScale logo and the subtitle text, with a small vertical separator
+- The yellow pill (line 283-285) already says "Demo lapa" — update text to "DEMO lapa" (uppercase DEMO)
 
+### Visual result
+- Nav shows: [ClickScale logo] | [MEXA logo] ... [link] [DEMO lapa yellow pill]
+- MEXA logo sized to ~h-8 to match ClickScale logo
+- Yellow pill text becomes "DEMO lapa"
