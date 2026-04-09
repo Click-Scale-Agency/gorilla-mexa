@@ -406,10 +406,13 @@ export default function App() {
               alt="MEXA"
               className={`w-full h-full object-cover transition-opacity duration-300 ${fadeIn ? "opacity-100" : "opacity-0"}`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+            {/* Green left overlay where text sits */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0d2b1a]/85 via-[#0d2b1a]/40 to-transparent" />
+            {/* Dark bottom vignette */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute inset-0 flex items-end pb-10">
               <div className="max-w-7xl mx-auto px-8 w-full">
-                <p className="text-white/70 text-xs font-semibold uppercase tracking-[0.2em] mb-2">
+                <p className="text-white/90 text-sm font-semibold uppercase tracking-[0.2em] mb-2">
                   GSI (ASV) Oficiālais Pārstāvis Baltijā
                 </p>
                 <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5 max-w-xl">
