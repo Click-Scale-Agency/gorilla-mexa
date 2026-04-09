@@ -148,8 +148,8 @@ export default function App() {
             </div>
             <div className="flex items-center gap-3">
               <a href="https://clickscale.agency/case-studies" target="_blank" rel="noopener noreferrer"
-                className="text-sm font-medium text-gray-500 hover:text-blue-600 transition-colors hidden sm:block">
-                Mūsu Projekti
+                className="text-sm font-semibold text-blue-600 hover:text-white hover:bg-blue-600 border border-blue-200 hover:border-blue-600 px-4 py-1.5 rounded-lg transition-all duration-200 hidden sm:block whitespace-nowrap">
+                Apskati mūsu citus klientus
               </a>
               <span className="bg-blue-50 border border-blue-100 text-blue-700 text-[11px] font-semibold px-3 py-1 rounded-full">
                 Demo lapa
@@ -511,7 +511,7 @@ export default function App() {
           SECTION 3 — CLICKSSCALE CTA
       ══════════════════════════════════════════════════════ */}
       <section className="bg-white border-t-4 border-blue-600">
-        <div className="max-w-3xl mx-auto px-6 py-24 text-center">
+        <div className="max-w-3xl mx-auto px-6 pt-24 pb-14 text-center">
           <div className="flex items-center justify-center gap-3 mb-8">
             <img src={CS_LOGO} alt="ClicksScale" className="h-12 w-12 rounded-full object-contain shadow-md" />
             <span className="text-2xl font-bold text-gray-900">ClicksScale</span>
@@ -521,12 +521,147 @@ export default function App() {
           <p className="text-gray-400 max-w-lg mx-auto mb-10 leading-relaxed">
             Šī demonstrācijas lapa tika izveidota 48 stundu laikā — ar jūsu īstajiem attēliem, jūsu krāsām, jūsu produktiem. Mēs veidojam mājaslapas, kas pārdod.
           </p>
+          {/* Primary CTA */}
           <a href="mailto:hello@clicksscale.com"
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-10 py-5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-lg">
             Sazināties ar ClicksScale <ArrowRight />
           </a>
-          <p className="mt-6 text-sm text-gray-400">Bez saistībām · Bezmaksas konsultācija · Atbilde 24 st. laikā</p>
+          <p className="mt-4 text-xs text-gray-400">Bez saistībām · Bezmaksas konsultācija · Atbilde 24 st. laikā</p>
+
+          {/* Case studies button */}
+          <div className="mt-5">
+            <a href="https://clickscale.agency/case-studies" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 border-2 border-blue-200 hover:border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold px-8 py-3.5 rounded-xl transition-all duration-200 cursor-pointer text-base">
+              Apskati mūsu citus klientus <ArrowRight />
+            </a>
+          </div>
         </div>
+
+        {/* ── Ghostly audit teaser ───────────────────────────── */}
+        <div className="max-w-2xl mx-auto px-6 pb-20">
+          <div className="text-center mb-6">
+            <p className="text-xs font-bold uppercase tracking-[0.15em] text-gray-400 mb-2">Papildus informācija</p>
+            <h3 className="text-xl font-extrabold text-gray-800">Vēlies apskatīt pilnu vecās lapas auditu?</h3>
+            <p className="text-sm text-gray-400 mt-1">Mēs veicām pilnu {AUDIT.domain} tehnisko analīzi. Šeit ir tās pārskata kopsavilkums.</p>
+          </div>
+
+          <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-2xl">
+            {/* ── Audit content (top clear, bottom blurred) ── */}
+            <div className="pointer-events-none select-none">
+
+              {/* Header — visible */}
+              <div className="bg-gray-900 px-5 py-4 flex items-center justify-between">
+                <div>
+                  <p className="text-white font-bold text-sm">Tehniski-vizuālais audits — {AUDIT.domain}</p>
+                  <p className="text-gray-400 text-xs mt-0.5">Ģenerēts: 09.04.2026 · ClicksScale analīze</p>
+                </div>
+                <span className="bg-red-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wide">Kritisks</span>
+              </div>
+
+              {/* Score circles — visible */}
+              <div className="bg-white px-5 py-5 flex justify-around border-b border-gray-100">
+                {[
+                  { l: "SEO", s: 2, ring: "border-red-500", text: "text-red-600" },
+                  { l: "Ātrums", s: 3, ring: "border-orange-400", text: "text-orange-500" },
+                  { l: "Mobilais", s: 1, ring: "border-red-600", text: "text-red-700" },
+                  { l: "Drošība", s: 0, ring: "border-red-700", text: "text-red-800" },
+                  { l: "Dizains", s: 2, ring: "border-red-500", text: "text-red-600" },
+                ].map(({ l, s, ring, text }) => (
+                  <div key={l} className="flex flex-col items-center gap-1.5">
+                    <div className={`w-14 h-14 rounded-full border-[3px] ${ring} flex items-center justify-center bg-white shadow-sm`}>
+                      <span className={`text-xl font-extrabold ${text}`}>{s}</span>
+                    </div>
+                    <p className="text-[10px] font-bold text-gray-500 uppercase tracking-wide">{l}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Issues — blurred */}
+              <div className="blur-sm bg-white">
+                {/* Critical */}
+                <div className="px-5 pt-4 pb-2 border-b border-gray-100">
+                  <p className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-red-500 mb-3">❌ Kritiskie trūkumi (6)</p>
+                  <div className="space-y-2.5">
+                    {[
+                      "SSL sertifikāts nav instalēts — visa vietne darbojas nedrošā http:// protokolā",
+                      "Mobilā versija nav pielāgota — viewport nav konfigurēts nevienā lapā",
+                      "Lapas ielādes laiks: 8.3 sek. (nozares standarts: <2.5 sek.)",
+                      "47 bojātas iekšējās saites — 404 kļūda",
+                      "Alt teksti trūkst 94% no 167 attēliem — Google tos neredz",
+                      "Google Search Console: 0% lapas ir indeksētas meklētājā",
+                    ].map((t) => (
+                      <div key={t} className="flex items-start gap-2.5 text-xs text-gray-700">
+                        <span className="text-red-500 flex-shrink-0 mt-0.5">✕</span>
+                        <span>{t}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Warnings */}
+                <div className="px-5 pt-4 pb-2 border-b border-gray-100">
+                  <p className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-orange-500 mb-3">⚠ Brīdinājumi (5)</p>
+                  <div className="space-y-2.5">
+                    {[
+                      "Meta apraksti trūkst 78% lapām — slikta Google redzamība",
+                      "Schema.org strukturētie dati nav ieviesti",
+                      "Attēli nav optimizēti — kopējais svars 14.2 MB (norm: <1 MB)",
+                      "Konkurenti meha.lv, graudi.lv ar 3–4× augstāku Google pozicionēšanu",
+                      "Core Web Vitals: LCP 9.1s · FID 820ms · CLS 0.41 — visi FAILED",
+                    ].map((t) => (
+                      <div key={t} className="flex items-start gap-2.5 text-xs text-gray-700">
+                        <span className="text-orange-400 flex-shrink-0 mt-0.5">▲</span>
+                        <span>{t}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Competitor comparison */}
+                <div className="px-5 pt-4 pb-2 border-b border-gray-100">
+                  <p className="text-[10px] font-extrabold uppercase tracking-[0.15em] text-gray-400 mb-3">Konkurentu salīdzinājums</p>
+                  <div className="space-y-2">
+                    {[
+                      { n: "mexa.lv", seo: 2, mob: 1, spd: 3, bg: "bg-red-50" },
+                      { n: "meha.lv", seo: 6, mob: 7, spd: 6, bg: "bg-gray-50" },
+                      { n: "graudi.lv", seo: 7, mob: 8, spd: 7, bg: "bg-gray-50" },
+                    ].map(({ n, seo, mob, spd, bg }) => (
+                      <div key={n} className={`${bg} rounded-lg px-3 py-2 flex items-center justify-between text-xs`}>
+                        <span className="font-bold text-gray-700 w-28">{n}</span>
+                        <span className="text-gray-500">SEO: <b>{seo}/10</b></span>
+                        <span className="text-gray-500">Mob: <b>{mob}/10</b></span>
+                        <span className="text-gray-500">Ātr: <b>{spd}/10</b></span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                {/* Tech stats */}
+                <div className="px-5 py-4 grid grid-cols-4 gap-3 bg-gray-50">
+                  {[
+                    { l: "HTTP pieprasījumi", v: "87" },
+                    { l: "Lapas svars", v: "14.2 MB" },
+                    { l: "Pirmā ielāde", v: "8.3 sek" },
+                    { l: "Bojātas saites", v: "47" },
+                  ].map(({ l, v }) => (
+                    <div key={l} className="text-center">
+                      <p className="text-base font-extrabold text-gray-800">{v}</p>
+                      <p className="text-[9px] text-gray-400 uppercase tracking-wide leading-tight mt-0.5">{l}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ── Gradient overlay + CTA ── */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent from-[38%] to-white to-[72%] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-0 flex flex-col items-center pb-10 px-6 text-center pointer-events-auto">
+              <p className="text-sm text-gray-500 mb-4 font-medium">Gribi redzēt pilnu auditu un ko mēs varam uzlabot?</p>
+              <a href="mailto:hello@clicksscale.com"
+                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-sm">
+                Pieprasīt pilno auditu <ArrowRight />
+              </a>
+            </div>
+          </div>
+        </div>
+
         <div className="border-t border-gray-100 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400">
             <span>© {new Date().getFullYear()} ClicksScale. Visas tiesības aizsargātas.</span>
