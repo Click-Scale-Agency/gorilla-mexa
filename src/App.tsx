@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import mexaLogoNav from "@/assets/mexa-logo-nav.png";
 
 // ─── ClicksScale brand ────────────────────────────────────────────────────────
 const CS_LOGO = "https://clickscale.agency/assets/click-scale-logo-IBjJ635-.png";
@@ -271,8 +270,6 @@ export default function App() {
             <div className="bg-white/90 backdrop-blur-xl rounded-full shadow-xl border border-white/50 px-6 py-2.5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <img src={CS_LOGO} alt="ClicksScale" className="h-8 object-contain" />
-                <div className="w-px h-6 bg-gray-300 hidden sm:block" />
-                <img src={mexaLogoNav} alt="MEXA" className="h-8 object-contain hidden sm:block" />
                 <div className="hidden sm:flex flex-col justify-center leading-tight">
                   <p className="text-[11px] font-semibold text-gray-600">Tīmekļa izstrādes &amp;</p>
                   <p className="text-[11px] font-semibold text-gray-600">digitālā mārketinga aģentūra</p>
@@ -284,7 +281,7 @@ export default function App() {
                   Apskati mūsu citus klientus
                 </a>
                 <span className="bg-highlight text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full">
-                  DEMO lapa
+                  Demo lapa
                 </span>
               </div>
             </div>
