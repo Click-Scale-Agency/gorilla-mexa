@@ -679,7 +679,7 @@ export default function App() {
           <h2 className="text-4xl font-extrabold text-gray-900 mb-3 leading-tight">Patīk tas, ko redzi?</h2>
           <p className="text-xl text-gray-600 mb-4">Tas, ko redzi — ir tikai aisberga redzamā daļa.</p>
           <p className="text-gray-500 max-w-lg mx-auto mb-4 leading-relaxed">
-            Šī lapa tika izveidota 48 stundu laikā — ar jūsu īstajiem attēliem, jūsu krāsām, jūsu produktiem. Taču vizuālais izskats ir tikai sākums.
+            Šī lapa tika izveidota personalīzeta Jums— ar jūsu īstajiem attēliem, jūsu krāsām, jūsu produktiem. Taču vizuālais izskats ir tikai sākums.
           </p>
           <p className="text-gray-500 max-w-lg mx-auto mb-10 leading-relaxed">
             Aiz tā stāv tehnoloģijas un atjauninājumi, kas palīdz ar SEO rankošanos Google un AI laikmeta meklētājos — tā jūsu klienti jūs atrod, pirms viņi vispār nokļūst uz lapas.
