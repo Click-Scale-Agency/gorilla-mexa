@@ -289,18 +289,18 @@ export default function App() {
         <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
           {/* Intro */}
           <div className="max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-white text-sm font-medium px-4 py-1.5 rounded-full mb-8">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
               </span>
               Personalizēta demonstrācija — MEXA
             </div>
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight leading-[1.1] mb-4">
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">
               Mēs izveidojām šo lapu<br />
-              <span className="text-blue-600">speciāli priekš jums</span>
+              <span className="text-cyan-300">speciāli priekš jums</span>
             </h1>
-            <p className="text-lg text-gray-400 mb-10">
+            <p className="text-lg text-white/70 mb-10">
               Zemāk redzat, ko mēs pamanījām jūsu mājaslapā — un ko mēs izveidojām.
             </p>
           </div>
