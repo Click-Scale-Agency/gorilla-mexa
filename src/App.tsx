@@ -318,7 +318,7 @@ export default function App() {
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-red-400 mb-0.5">Ko mēs pamanījām</p>
                   <p className="text-sm font-semibold text-white">Vecā mājaslapa</p>
                 </div>
-                <span className="bg-white/15 backdrop-blur-sm border border-white/20 text-red-400 text-[11px] font-mono font-bold px-2.5 py-1 rounded-lg">
+                <span className="bg-red-500 text-black text-[11px] font-bold px-3 py-1 rounded-full">
                   {AUDIT.domain}
                 </span>
               </div>
