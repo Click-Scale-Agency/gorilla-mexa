@@ -1,25 +1,32 @@
 
 
-## Plan: Move CTA button under the title
+## Plan: Add warning stripes to scrolling ticker
 
 ### What changes
-Move the "Skatīt demonstrāciju" button and its subtitle text from below the audit cards to directly under the main heading, before the description paragraph. Remove the floating/bouncing animation to make it flow naturally.
+Add diagonal black-and-yellow hazard stripes as top and bottom borders on the scrolling ticker, similar to caution tape. Keep the existing lime/yellow background and text unchanged. No skull icons.
 
 ### Changes
 
-**File: `src/App.tsx`**
+**File: `src/App.tsx`** (lines 367-376)
 
-1. **Remove the CTA block from its current location** (lines 357-364) — the `<button>` and the `<p>` with "Bezmaksas demonstrācija" text.
+Replace the ticker wrapper with a structure that has:
+1. A top stripe bar — a thin div (~10-12px) with a repeating diagonal stripe pattern (black + yellow) using CSS `repeating-linear-gradient`
+2. The existing scrolling text (unchanged)
+3. A bottom stripe bar — same as the top
 
-2. **Insert the CTA block inside the `max-w-2xl` intro div** (after line 306, the closing `</h1>` tag, before the `<p>` description) — place the button and subtitle between the title and the description paragraph.
+**File: `src/index.css`**
 
-3. **Remove `animate-float`** from the button classes so it flows naturally in the layout. Keep the rest of the styling (highlight background, glow shadow, hover effects).
-
-The resulting structure will be:
+Add a utility class `.warning-stripes` with the repeating diagonal stripe pattern:
+```css
+.warning-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    #000 0px, #000 10px,
+    #C8FF24 10px, #C8FF24 20px
+  );
+  height: 12px;
+}
 ```
-<h1>Title</h1>
-<button>Skatīt demonstrāciju</button>
-<p>Bezmaksas demonstrācija...</p>
-<p>Zemāk redzat...</p>
-```
+
+This gives the caution-tape look with diagonal stripes framing the text on top and bottom.
 
