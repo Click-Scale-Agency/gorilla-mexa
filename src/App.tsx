@@ -322,7 +322,7 @@ export default function App() {
             <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl">
               <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-red-400 mb-0.5">Ko mēs pamanījām</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.12em] mb-0.5 text-highlight">Ko mēs pamanījām</p>
                   <p className="text-sm font-semibold text-white">Vecā mājaslapa</p>
                 </div>
                 <span className="bg-red-500 text-black text-[11px] font-bold px-3 py-1 rounded-full">
@@ -346,7 +346,7 @@ export default function App() {
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-highlight mb-0.5">Ko mēs izveidojām</p>
                   <p className="text-sm font-semibold text-white">Jaunā versija priekš jums</p>
                 </div>
-                <span className="bg-highlight text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full">
+                <span className="text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full bg-lime-500">
                   Demo lapa
                 </span>
               </div>
