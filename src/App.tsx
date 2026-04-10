@@ -299,21 +299,18 @@ export default function App() {
           </div>
 
           {/* Intro */}
-          <div className="max-w-2xl mx-auto">
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1] mb-4">
+          <div className="max-w-2xl mx-auto flex flex-col items-center gap-8">
+            <h1 className="text-5xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
               Mēs izveidojām šo lapu<br />
               <span className="text-cyan-300">speciāli priekš jums</span>
             </h1>
             <button
               onClick={() => scrollTo("mexa")}
-              className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg mb-3"
+              className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg"
             >
               SKATĪT DEMO LAPU ZEMĀK <span className="inline-block animate-chevron-bounce"><ChevronDown /></span>
             </button>
-            <p className="text-xs text-white/50 mb-8">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
-            <p className="text-lg text-white/70 mb-10">
-              Zemāk redzat, ko mēs pamanījām jūsu mājaslapā — un ko mēs izveidojām.
-            </p>
+            <p className="text-xs text-white/50">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
           </div>
 
           {/* Audit cards */}
