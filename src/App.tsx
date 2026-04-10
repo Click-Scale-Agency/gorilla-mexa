@@ -707,8 +707,20 @@ export default function App() {
         </div>
       </div>
 
-      {/* Gradient bleed — dark footer → white */}
-      <div className="h-16 bg-gradient-to-b from-[#3a3a3a] to-white" />
+      {/* Warning stripe ticker — end of MEXA demo */}
+      <div>
+        <div className="warning-stripes" />
+        <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-2">
+          <div className="inline-block animate-marquee">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <span key={i} className="inline-block px-6 text-base font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
+                ŠEIT BEIDZAS JŪSU DEMO LAPA
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="warning-stripes" />
+      </div>
 
       {/* ── Ghostly audit teaser — first thing after MEXA footer ── */}
       <div className="bg-white py-16 px-6">
