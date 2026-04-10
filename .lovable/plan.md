@@ -1,32 +1,16 @@
 
 
-## Plan: Add warning stripes to scrolling ticker
-
-### What changes
-Add diagonal black-and-yellow hazard stripes as top and bottom borders on the scrolling ticker, similar to caution tape. Keep the existing lime/yellow background and text unchanged. No skull icons.
+## Plan: Thinner ticker + new text + duplicate ticker before footer
 
 ### Changes
 
-**File: `src/App.tsx`** (lines 367-376)
+**File: `src/App.tsx`**
 
-Replace the ticker wrapper with a structure that has:
-1. A top stripe bar — a thin div (~10-12px) with a repeating diagonal stripe pattern (black + yellow) using CSS `repeating-linear-gradient`
-2. The existing scrolling text (unchanged)
-3. A bottom stripe bar — same as the top
+1. **Ticker text & size** (lines 367-376): Change `py-4` to `py-2`, change `text-2xl` to `text-base`, and update text from `ŠĪ IR TIKAI DEMO LAPA` to `ŠEIT SĀKAS JŪSU DEMO LAPA`.
+
+2. **Add same warning-stripe ticker before footer** (before line 898): Insert an identical ticker block (warning stripes + scrolling text) right after the skills/team section closes and before the footer `<div className="border-t border-gray-100 bg-gray-50">`.
 
 **File: `src/index.css`**
 
-Add a utility class `.warning-stripes` with the repeating diagonal stripe pattern:
-```css
-.warning-stripes {
-  background: repeating-linear-gradient(
-    -45deg,
-    #000 0px, #000 10px,
-    #C8FF24 10px, #C8FF24 20px
-  );
-  height: 12px;
-}
-```
-
-This gives the caution-tape look with diagonal stripes framing the text on top and bottom.
+3. **Make stripes thinner**: Change `.warning-stripes` height from `12px` to `8px`.
 
