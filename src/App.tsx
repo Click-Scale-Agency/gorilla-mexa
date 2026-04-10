@@ -907,19 +907,6 @@ export default function App() {
           </div>
         </div>
 
-        <div>
-          <div className="warning-stripes" />
-          <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-2">
-            <div className="inline-block animate-marquee">
-              {Array.from({ length: 12 }).map((_, i) => (
-                <span key={i} className="inline-block px-6 text-base font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
-                  ŠEIT SĀKAS JŪSU DEMO LAPA
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="warning-stripes" />
-        </div>
 
         <div className="border-t border-gray-100 bg-gray-50">
           <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400">
