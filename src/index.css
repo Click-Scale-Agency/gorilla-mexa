@@ -108,7 +108,7 @@ All colors MUST be HSL.
     #000 0px, #000 10px,
     #C8FF24 10px, #C8FF24 20px
   );
-  height: 12px;
+  height: 8px;
 }
 
 @layer base {

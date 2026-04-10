@@ -364,11 +364,11 @@ export default function App() {
       {/* Scrolling ticker */}
       <div>
         <div className="warning-stripes" />
-        <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-4">
+        <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-2">
           <div className="inline-block animate-marquee">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <span key={i} className="inline-block px-6 text-2xl font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
-                ŠĪ IR TIKAI DEMO LAPA
+            {Array.from({ length: 12 }).map((_, i) => (
+              <span key={i} className="inline-block px-6 text-base font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
+                ŠEIT SĀKAS JŪSU DEMO LAPA
               </span>
             ))}
           </div>
@@ -893,6 +893,20 @@ export default function App() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div>
+          <div className="warning-stripes" />
+          <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-2">
+            <div className="inline-block animate-marquee">
+              {Array.from({ length: 12 }).map((_, i) => (
+                <span key={i} className="inline-block px-6 text-base font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
+                  ŠEIT SĀKAS JŪSU DEMO LAPA
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="warning-stripes" />
         </div>
 
         <div className="border-t border-gray-100 bg-gray-50">
