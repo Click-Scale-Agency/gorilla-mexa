@@ -105,10 +105,10 @@ All colors MUST be HSL.
 .warning-stripes {
   background: repeating-linear-gradient(
     -45deg,
-    #000 0px, #000 10px,
-    #C8FF24 10px, #C8FF24 20px
+    #000 0px, #000 6px,
+    #C8FF24 6px, #C8FF24 12px
   );
-  height: 8px;
+  height: 4px;
 }
 
 @layer base {

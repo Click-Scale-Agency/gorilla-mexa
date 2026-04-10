@@ -364,10 +364,10 @@ export default function App() {
       {/* Scrolling ticker */}
       <div>
         <div className="warning-stripes" />
-        <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-2">
+        <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-1">
           <div className="inline-block animate-marquee">
             {Array.from({ length: 12 }).map((_, i) => (
-              <span key={i} className="inline-block px-6 text-base font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
+              <span key={i} className="inline-block px-6 text-sm font-bold uppercase tracking-[0.1em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
                 ŠEIT SĀKAS JŪSU DEMO LAPA
               </span>
             ))}
@@ -710,10 +710,10 @@ export default function App() {
       {/* Warning stripe ticker — end of MEXA demo */}
       <div>
         <div className="warning-stripes" />
-        <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-2">
+        <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-1">
           <div className="inline-block animate-marquee">
             {Array.from({ length: 12 }).map((_, i) => (
-              <span key={i} className="inline-block px-6 text-base font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
+              <span key={i} className="inline-block px-6 text-sm font-bold uppercase tracking-[0.1em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
                 ŠEIT BEIDZAS JŪSU DEMO LAPA
               </span>
             ))}
