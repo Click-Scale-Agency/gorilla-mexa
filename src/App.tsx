@@ -370,7 +370,7 @@ export default function App() {
         <div className="inline-block animate-marquee">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className="inline-block px-6 text-2xl font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
-              MEXA JAUNĀ MĀJAS LAPA
+              ŠĪ IR TIKAI DEMO LAPA
             </span>
           ))}
         </div>
