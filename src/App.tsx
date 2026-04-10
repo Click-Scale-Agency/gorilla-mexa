@@ -308,7 +308,7 @@ export default function App() {
               onClick={() => scrollTo("mexa")}
               className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg mb-3"
             >
-              Skatīt demonstrāciju <span className="inline-block animate-chevron-bounce"><ChevronDown /></span>
+              SKATĪT DEMO LAPU ZEMĀK <span className="inline-block animate-chevron-bounce"><ChevronDown /></span>
             </button>
             <p className="text-xs text-white/50 mb-8">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
             <p className="text-lg text-white/70 mb-10">
