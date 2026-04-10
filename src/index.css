@@ -102,6 +102,15 @@ All colors MUST be HSL.
   }
 }
 
+.warning-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    #000 0px, #000 10px,
+    #C8FF24 10px, #C8FF24 20px
+  );
+  height: 12px;
+}
+
 @layer base {
   * {
     @apply border-border;

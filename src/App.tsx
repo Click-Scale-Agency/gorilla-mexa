@@ -365,14 +365,18 @@ export default function App() {
       </section>
 
       {/* Scrolling ticker */}
-      <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-4">
-        <div className="inline-block animate-marquee">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <span key={i} className="inline-block px-6 text-2xl font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
-              ŠĪ IR TIKAI DEMO LAPA
-            </span>
-          ))}
+      <div>
+        <div className="warning-stripes" />
+        <div style={{ backgroundColor: '#C8FF24' }} className="overflow-hidden whitespace-nowrap py-4">
+          <div className="inline-block animate-marquee">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <span key={i} className="inline-block px-6 text-2xl font-black uppercase tracking-[0.15em]" style={{ fontFamily: "'Orbitron', sans-serif", color: '#000000' }}>
+                ŠĪ IR TIKAI DEMO LAPA
+              </span>
+            ))}
+          </div>
         </div>
+        <div className="warning-stripes" />
       </div>
 
       {/* ══════════════════════════════════════════════════════
