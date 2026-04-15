@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 const CS_LOGO = "https://clickscale.agency/assets/click-scale-logo-IBjJ635-.png";
 
 const TEAM = [
-  { photo: "https://clickscale.agency/assets/kristaps-krankelis-CDjPm5xS.png", name: "Kristaps Krankelis", title: "Līdzdibinātājs un CEO", linkedin: "#" },
-  { photo: "https://clickscale.agency/assets/martins-arins-C_NV8N2_.png", name: "Mārtiņš Āriņš", title: "Līdzdibinātājs un stratēģijas direktors", linkedin: "#" },
+  { photo: "https://clickscale.agency/assets/kristaps-krankelis-CDjPm5xS.png", name: "Kristaps Krankelis", title: "Līdzdibinātājs un CEO", linkedin: "https://www.linkedin.com/in/kristaps-krankelis" },
+  { photo: "https://clickscale.agency/assets/martins-arins-C_NV8N2_.png", name: "Mārtiņš Āriņš", title: "Līdzdibinātājs un stratēģijas direktors", linkedin: "https://www.linkedin.com/in/martinsarins/" },
 ];
 
 const SKILLS = [
