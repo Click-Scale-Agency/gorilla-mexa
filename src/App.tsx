@@ -731,12 +731,12 @@ export default function App() {
             <p className="text-sm text-gray-400 mt-1">Mēs veicām pilnu {AUDIT.domain} tehnisko analīzi. Šeit ir tās pārskata kopsavilkums.</p>
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden border border-gray-200 shadow-2xl">
+          <div className="relative rounded-2xl overflow-hidden border-2 border-highlight shadow-2xl">
             <div className="pointer-events-none select-none">
-              <div className="bg-gray-900 px-5 py-4 flex items-center justify-between">
+              <div className="bg-highlight px-5 py-4 flex items-center justify-between">
                 <div>
-                  <p className="text-white font-bold text-sm">Tehniski-vizuālais audits — {AUDIT.domain}</p>
-                  <p className="text-gray-400 text-xs mt-0.5">Ģenerēts: 09.04.2026 · ClicksScale analīze</p>
+                  <p className="text-highlight-foreground font-bold text-sm">Tehniski-vizuālais audits — {AUDIT.domain}</p>
+                  <p className="text-highlight-foreground/70 text-xs mt-0.5">Ģenerēts: 09.04.2026 · ClicksScale analīze</p>
                 </div>
                 <span className="bg-red-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wide">Kritisks</span>
               </div>
@@ -801,7 +801,7 @@ export default function App() {
               <p className="text-sm text-gray-500 mb-4 font-medium">Gribi redzēt pilnu auditu un ko mēs varam uzlabot?</p>
               <button
                 onClick={() => scrollTo("cta")}
-                className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-sm">
+                className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg">
                 Pieprasīt pilno auditu <ArrowRight />
               </button>
             </div>
