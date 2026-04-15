@@ -312,106 +312,6 @@ export default function App() {
         </div>
       )}
 
-      {/* ══════════════════════════════════════════════════════
-          SECTION 1 — CLICKSSCALE DEMO FRAME
-      ══════════════════════════════════════════════════════ */}
-      <section className="min-h-screen flex flex-col font-body" style={{ background: 'linear-gradient(135deg, #0238F4 0%, #7A1DF2 45%, #00D6C9 100%)' }}>
-        <header className="sticky top-0 z-50">
-          <div className="max-w-5xl mx-auto px-4 pt-4">
-            <div className="bg-white/90 backdrop-blur-xl rounded-full shadow-xl border border-white/50 px-6 py-2.5 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <img src={CS_LOGO} alt="ClicksScale" className="h-8 object-contain" />
-                <div className="hidden sm:flex flex-col justify-center leading-tight">
-                  <p className="text-[11px] font-semibold text-gray-600">Tīmekļa izstrādes &amp;</p>
-                  <p className="text-[11px] font-semibold text-gray-600">digitālā mārketinga aģentūra</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <a href="https://clickscale.agency/lv/veiksmes-stasti" target="_blank" rel="noopener noreferrer"
-                  className="text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 px-4 py-1.5 rounded-full transition-all duration-200 hidden sm:block whitespace-nowrap">
-                  Apskati mūsu citus klientus
-                </a>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
-          {/* Logo + Status pill row */}
-          <div className="flex flex-row items-center justify-center gap-8 mb-8">
-            <img src={MEXA.logo} alt="MEXA" className="object-contain brightness-0 invert" style={{ width: '100px', height: '100px' }} />
-            <div className="inline-flex items-center gap-2 bg-white/15 border border-white/20 text-sm font-medium px-4 py-2 rounded-full text-highlight">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-highlight" />
-              </span>
-              Personalizēta demonstrācija — MEXA.LV
-            </div>
-          </div>
-
-          {/* Intro */}
-          <div className="max-w-2xl mx-auto flex flex-col items-center gap-8">
-            <h1 className="text-5xl sm:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
-              Mēs izveidojām šo lapu<br />
-              <span className="text-cyan-300">speciāli priekš jums</span>
-            </h1>
-            <button
-              onClick={() => scrollTo("mexa")}
-              className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg"
-            >
-              SKATĪT DEMO LAPU ZEMĀK <span className="inline-block animate-chevron-bounce"><ChevronDown /></span>
-            </button>
-            <p className="text-xs text-white/50">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
-          </div>
-
-          {/* Audit cards */}
-          <div className="max-w-4xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-10">
-            {/* Before */}
-            <div className="spotlight-card border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl" onMouseMove={handleSpotlight}>
-              <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] mb-0.5 text-highlight">Ko mēs pamanījām</p>
-                  <p className="text-sm font-semibold text-white">Vecā mājaslapa</p>
-                </div>
-                <span className="bg-red-500 text-black text-[11px] font-bold px-3 py-1 rounded-full">
-                  {AUDIT.domain}
-                </span>
-              </div>
-              <div className="px-6 py-5 space-y-3">
-                {AUDIT.problems.map((p) => (
-                  <div key={p} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center text-red-300 text-xs font-bold">✕</span>
-                    <span className="text-sm text-white">{p}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* After */}
-            <div className="spotlight-card border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl" onMouseMove={handleSpotlight}>
-              <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.12em] text-highlight mb-0.5">Ko mēs izveidojām</p>
-                  <p className="text-sm font-semibold text-white">Jaunā versija priekš jums</p>
-                </div>
-                <span className="text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full bg-lime-500">
-                  Demo lapa
-                </span>
-              </div>
-              <div className="px-6 py-5 space-y-3">
-                {AUDIT.gains.map((g) => (
-                  <div key={g} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 text-xs font-bold">✓</span>
-                    <span className="text-sm text-white">{g}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
       {/* Scrolling ticker */}
       <div>
         <div className="warning-stripes" />
@@ -773,13 +673,71 @@ export default function App() {
         <div className="warning-stripes" />
       </div>
 
-      {/* ── Ghostly audit teaser — first thing after MEXA footer ── */}
-      <div className="bg-white py-16 px-6">
+      {/* ── Shared gradient: CS Frame + Bridge ── */}
+      <div style={{ background: 'radial-gradient(ellipse 90% 65% at 0% 100%, #2563eb 0%, transparent 60%), radial-gradient(ellipse 90% 65% at 100% 100%, #0891b2 0%, transparent 60%), radial-gradient(ellipse 60% 45% at 50% 0%, #7c3aed 0%, transparent 60%), #070d1a' }}>
+
+      {/* ══ CS FRAME ══ */}
+      <section className="relative min-h-screen flex flex-col">
+        <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-16">
+          <div className="max-w-4xl w-full mx-auto flex flex-col items-center gap-8">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/60 mb-2">Ko mēs paveicām</p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                Problēmas un risinājumi —<br /><span className="text-cyan-300">soli pa solim</span>
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left w-full">
+              <div className="spotlight-card border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl" onMouseMove={handleSpotlight}>
+                <div className="bg-white/15 px-6 py-4 flex items-center justify-between border-b border-white/10">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] mb-0.5 text-highlight">Ko mēs pamanījām</p>
+                    <p className="text-sm font-semibold text-white">{AUDIT.domain}</p>
+                  </div>
+                  <span className="bg-red-500 text-white text-[11px] font-bold px-3 py-1 rounded-full">jāuzlabo</span>
+                </div>
+                <div className="px-6 py-5 space-y-3">
+                  {AUDIT.problems.map((p) => (
+                    <div key={p} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-red-500/20 flex items-center justify-center text-red-300 text-xs font-bold">✕</span>
+                      <span className="text-sm text-white">{p}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="spotlight-card border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl" onMouseMove={handleSpotlight}>
+                <div className="bg-white/15 px-6 py-4 flex items-center justify-between border-b border-white/10">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.12em] text-highlight mb-0.5">Ko mēs izveidojām</p>
+                    <p className="text-sm font-semibold text-white">Jaunā versija priekš jums</p>
+                  </div>
+                  <span className="text-highlight-foreground text-[11px] font-bold px-3 py-1 rounded-full bg-lime-500">Demo lapa</span>
+                </div>
+                <div className="px-6 py-5 space-y-3">
+                  {AUDIT.gains.map((g) => (
+                    <div key={g} className="flex items-start gap-3">
+                      <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-300 text-xs font-bold">✓</span>
+                      <span className="text-sm text-white">{g}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <button onClick={() => scrollTo("cta")}
+              className="inline-flex items-center gap-2 bg-highlight text-highlight-foreground font-bold px-8 py-4 rounded-lg shadow-glow-yellow hover:shadow-glow-yellow-lg hover:-translate-y-1 hover:scale-105 transition-all duration-300 cursor-pointer text-lg">
+              SAZINĀTIES AR MUMS <span className="inline-block animate-chevron-bounce"><ChevronDown /></span>
+            </button>
+            <p className="text-xs text-white/50">Bezmaksas demonstrācija · Nav saistošu pienākumu</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BRIDGE: Audit Teaser ── */}
+      <div className="relative py-16 px-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-6">
-            <p className="text-xs font-bold uppercase tracking-[0.15em] text-gray-400 mb-2">Papildus informācija</p>
-            <h3 className="text-xl font-extrabold text-gray-800">Vēlies apskatīt pilnu vecās lapas auditu?</h3>
-            <p className="text-sm text-gray-400 mt-1">Mēs veicām pilnu {AUDIT.domain} tehnisko analīzi. Šeit ir tās pārskata kopsavilkums.</p>
+            <p className="text-xs font-bold uppercase tracking-[0.15em] text-white/60 mb-2">ClicksScale analīze</p>
+            <h3 className="text-xl font-extrabold text-white">Vēlies redzēt pilnu mexa.lv auditu?</h3>
+            <p className="text-sm text-white/60 mt-1">Mēs veicām pilnu tehnisko analīzi. Šeit ir pārskata kopsavilkums.</p>
           </div>
 
           <div className="relative rounded-2xl overflow-hidden border-2 border-highlight shadow-2xl">
@@ -858,7 +816,15 @@ export default function App() {
             </div>
           </div>
         </div>
+        {/* Smile curve fade to white */}
+        <svg className="absolute bottom-0 left-0 w-full pointer-events-none" viewBox="0 0 1440 180" preserveAspectRatio="none" style={{ height: '180px', display: 'block' }}>
+          <path d="M0,80 C360,20 1080,120 1440,50 L1440,180 L0,180 Z" fill="white" fillOpacity="0.06" />
+          <path d="M0,110 C480,50 960,130 1440,80 L1440,180 L0,180 Z" fill="white" fillOpacity="0.18" />
+          <path d="M0,145 C360,95 1080,155 1440,115 L1440,180 L0,180 Z" fill="white" />
+        </svg>
       </div>
+
+      </div>{/* end shared gradient wrapper */}
 
       {/* ══════════════════════════════════════════════════════
           SECTION 3 — CLICKSSCALE CTA
