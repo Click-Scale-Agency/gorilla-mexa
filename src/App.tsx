@@ -170,6 +170,19 @@ const Stars = ({ n }: { n: number }) => (
   </div>
 );
 
+// ─── Scroll reveal ────────────────────────────────────────────────────────────
+function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("revealed"); }),
+      { threshold: 0.1 }
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+}
+
 // ─── App ──────────────────────────────────────────────────────────────────────
 export default function App() {
   const [slide, setSlide] = useState(0);
@@ -249,9 +262,47 @@ export default function App() {
   };
 
   const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const handleSpotlight = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--sx', `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    e.currentTarget.style.setProperty('--sy', `${((e.clientY - rect.top) / rect.height) * 100}%`);
+  };
+
+  useReveal();
 
   return (
     <div className="font-['Plus_Jakarta_Sans',sans-serif]">
+      <style>{`
+        .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        @keyframes statCount { from { opacity: 0; transform: scale(0.72) translateY(14px); } 65% { transform: scale(1.06) translateY(-3px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+        .stat-reveal.revealed { animation: statCount 0.65s cubic-bezier(0.34,1.56,0.64,1) forwards; animation-delay: var(--stat-delay, 0s); }
+        @media (prefers-reduced-motion: reduce) { .reveal { transition: none; } .skills-scroll { animation: none; } .hero-blur-in { animation: none; opacity: 1; filter: none; } .stat-reveal.revealed { animation: none; } }
+        .text-gradient-cs { background: linear-gradient(135deg, #1d4ed8 0%, #0891b2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        @keyframes emailGlow { 0%,100% { box-shadow: 0 0 0 0 rgba(37,99,235,0.35), 0 4px 14px rgba(37,99,235,0.2); } 50% { box-shadow: 0 0 0 10px rgba(37,99,235,0), 0 6px 28px rgba(37,99,235,0.45); } }
+        .cta-email { animation: emailGlow 2.5s ease-in-out infinite; }
+        .team-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .team-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.09); }
+        @keyframes skillsScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .skills-scroll { animation: skillsScroll 26s linear infinite; }
+        .skill-pill { transition: background-color 0.2s ease, color 0.2s ease; cursor: default; }
+        .skill-pill:hover { background-color: #dbeafe; color: #1d4ed8; }
+        @keyframes blurFadeIn { from { opacity: 0; filter: blur(10px); transform: translateY(14px); } to { opacity: 1; filter: blur(0); transform: translateY(0); } }
+        .hero-blur-in { opacity: 0; animation: blurFadeIn 0.8s cubic-bezier(0.16,1,0.3,1) forwards; }
+        .hero-blur-in-1 { animation-delay: 0.1s; }
+        .hero-blur-in-2 { animation-delay: 0.3s; }
+        .hero-blur-in-3 { animation-delay: 0.5s; }
+        .hero-blur-in-4 { animation-delay: 0.68s; }
+        .spotlight-card { position: relative; }
+        .spotlight-card::before { content: ''; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(400px circle at var(--sx,50%) var(--sy,50%), rgba(255,255,255,0.14), transparent 40%); opacity: 0; transition: opacity 0.25s ease; pointer-events: none; z-index: 1; }
+        .spotlight-card:hover::before { opacity: 1; }
+        .testimonial-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 0 0 2px rgba(51,153,102,0.28), 0 20px 40px rgba(51,153,102,0.09); }
+      `}</style>
 
       {/* Demo toast */}
       {showDemoToast && (
@@ -316,7 +367,7 @@ export default function App() {
           {/* Audit cards */}
           <div className="max-w-4xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 text-left mb-10">
             {/* Before */}
-            <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl">
+            <div className="spotlight-card border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl" onMouseMove={handleSpotlight}>
               <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.12em] mb-0.5 text-highlight">Ko mēs pamanījām</p>
@@ -337,7 +388,7 @@ export default function App() {
             </div>
 
             {/* After */}
-            <div className="border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl">
+            <div className="spotlight-card border-2 border-highlight rounded-2xl overflow-hidden bg-white/10 backdrop-blur-xl" onMouseMove={handleSpotlight}>
               <div className="bg-white/15 backdrop-blur-sm px-6 py-4 flex items-center justify-between border-b border-white/10">
                 <div>
                   <p className="text-xs font-bold uppercase tracking-[0.12em] text-highlight mb-0.5">Ko mēs izveidojām</p>
@@ -451,17 +502,17 @@ export default function App() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute inset-0 flex items-end pb-10">
               <div className="max-w-7xl mx-auto px-8 w-full">
-                <p className="text-white/90 text-sm font-semibold uppercase tracking-[0.2em] mb-2">
+                <p className="hero-blur-in hero-blur-in-1 text-white/90 text-sm font-semibold uppercase tracking-[0.2em] mb-2">
                   GSI (ASV) Oficiālais Pārstāvis Baltijā
                 </p>
-                <h2 className="text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5 max-w-xl">
+                <h2 className="hero-blur-in hero-blur-in-2 text-4xl sm:text-5xl font-extrabold text-white leading-tight mb-5 max-w-xl">
                   Mēs pārstāvam jūsu intereses —<br />
                   <span style={{ color: "#28b358" }}>graudu tehnoloģiju eksperti</span>
                 </h2>
                 <button
                   onClick={() => scrollTo("products")}
                   style={{ backgroundColor: MEXA.green }}
-                  className="inline-flex items-center gap-2 text-white font-bold px-7 py-3 rounded-lg hover:opacity-90 transition-opacity cursor-pointer shadow-lg"
+                  className="hero-blur-in hero-blur-in-3 inline-flex items-center gap-2 text-white font-bold px-7 py-3 rounded-lg hover:opacity-90 transition-opacity cursor-pointer shadow-lg"
                 >
                   Skatīt produktus <ArrowRight />
                 </button>
@@ -563,7 +614,7 @@ export default function App() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {TESTIMONIALS.map(({ name, company, text, stars }) => (
-                <div key={name} className="bg-gray-50 rounded-2xl p-6 flex flex-col gap-4 border border-gray-100">
+                <div key={name} className="testimonial-card bg-gray-50 rounded-2xl p-6 flex flex-col gap-4 border border-gray-100">
                   <Stars n={stars} />
                   <p className="text-sm text-gray-600 leading-relaxed flex-1">"{text}"</p>
                   <div>
@@ -597,8 +648,8 @@ export default function App() {
         {/* Stats */}
         <div style={{ backgroundColor: MEXA.green }} className="py-10 px-6">
           <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[{ n: "2001", l: "Dibināšanas gads" }, { n: "23+", l: "Gadi pieredzē" }, { n: "GSI", l: "ASV sertifikāts" }, { n: "3", l: "Baltijas valstis" }].map((s) => (
-              <div key={s.l}>
+            {[{ n: "2001", l: "Dibināšanas gads" }, { n: "23+", l: "Gadi pieredzē" }, { n: "GSI", l: "ASV sertifikāts" }, { n: "3", l: "Baltijas valstis" }].map((s, i) => (
+              <div key={s.l} className="reveal stat-reveal" style={{ '--stat-delay': `${i * 0.09}s` } as React.CSSProperties}>
                 <div className="text-4xl font-extrabold text-white mb-1">{s.n}</div>
                 <div className="text-green-100 text-sm">{s.l}</div>
               </div>
@@ -812,12 +863,24 @@ export default function App() {
       {/* ══════════════════════════════════════════════════════
           SECTION 3 — CLICKSSCALE CTA
       ══════════════════════════════════════════════════════ */}
-      <section className="bg-white">
-        <div className="max-w-3xl mx-auto px-6 pt-24 pb-14 text-center">
+      <section id="cta" className="bg-white relative overflow-hidden">
+        {/* Subtle blue glow echoing the gradient section above */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[420px] pointer-events-none"
+             style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(37,99,235,0.07) 0%, transparent 70%)' }} />
+        <div className="max-w-3xl mx-auto px-6 pt-24 pb-14 text-center relative">
+          {/* Shimmer badge */}
+          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 rounded-full px-4 py-1.5 mb-6">
+            <span className="text-blue-400 text-xs">✦</span>
+            <span className="text-[11px] font-bold uppercase tracking-[0.14em]"
+                  style={{ background: 'linear-gradient(90deg, #2563eb, #0891b2, #7c3aed, #2563eb)', backgroundSize: '200% auto', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              Personalizēta demonstrācija
+            </span>
+            <span className="text-blue-400 text-xs">✦</span>
+          </div>
           <div className="flex items-center justify-center mb-8">
             <img src={CS_LOGO} alt="ClicksScale" className="h-10 object-contain" />
           </div>
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-3 leading-tight">Patīk tas, ko redzi?</h2>
+          <h2 className="text-4xl font-extrabold mb-3 leading-tight text-gradient-cs">Patīk tas, ko redzi?</h2>
           <p className="text-xl text-gray-600 mb-4">Tas, ko redzi — ir tikai aisberga redzamā daļa.</p>
           <p className="text-gray-500 max-w-lg mx-auto mb-4 leading-relaxed">
             Šī lapa tika izveidota personalīzeta Jums— ar jūsu īstajiem attēliem, jūsu krāsām, jūsu produktiem. Taču vizuālais izskats ir tikai sākums.
@@ -826,9 +889,9 @@ export default function App() {
             Aiz tā stāv tehnoloģijas un atjauninājumi, kas palīdz ar SEO rankošanos Google un AI laikmeta meklētājos — tā jūsu klienti jūs atrod, pirms viņi vispār nokļūst uz lapas.
           </p>
           {/* Primary CTA */}
-          <div id="cta" className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div id="cta-btns" className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a href="mailto:martins@kkmedia.lv"
-              className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-base">
+              className="cta-email inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 cursor-pointer text-base">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               Rakstīt e-pastu
             </a>
@@ -858,7 +921,7 @@ export default function App() {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-7">
               {TEAM.map(({ photo, name, title, linkedin }) => (
-                <div key={name} className="bg-gray-50 rounded-xl p-5 flex flex-col items-center text-center">
+                <div key={name} className="team-card bg-white border border-gray-100 shadow-sm rounded-xl p-5 flex flex-col items-center text-center">
                   <img src={photo} alt={name} className="w-28 h-32 rounded-2xl object-cover object-top mb-3" />
                   <p className="text-sm font-bold text-gray-900 leading-tight">{name}</p>
                   <p className="text-[11px] text-gray-400 mt-0.5 mb-3 leading-tight">{title}</p>
@@ -897,12 +960,13 @@ export default function App() {
                 </ul>
               </div>
             </div>
-            <div className="flex flex-wrap justify-center gap-2">
-              {SKILLS.map((s) => (
-                <span key={s} className="text-[11px] font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
-                  {s}
-                </span>
-              ))}
+            <div className="relative overflow-hidden"
+                 style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
+              <div className="skills-scroll inline-flex gap-2 whitespace-nowrap">
+                {[...SKILLS, ...SKILLS].map((s, i) => (
+                  <span key={i} className="skill-pill text-[11px] font-medium text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full">{s}</span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
